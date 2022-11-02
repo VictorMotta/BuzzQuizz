@@ -28,21 +28,20 @@ header {
     flex-direction: column;
     align-items: center;
     background-color: #FAFAFA;
+    transition: 0.6s ease-in-out;
 }
 
-.selected-quizz {
+.selected-quiz {
     margin-top: 70px;
     width: 100%;
-    position: relative;
+    height: 227px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/img/Rectangle42.png) center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.selected-quizz img {
-    width: 100%;
-    max-height: 227px;
-}
-
-.selected-quizz span {
-    position: absolute;
+.selected-quiz span {
     z-index: 2;
     top: 45%;
     left: 35%;
@@ -187,3 +186,73 @@ header {
 }
 
 /* Configuração para Desktops  - Fim*/
+
+/* Reponsividade - Início */
+
+@media (max-width: 700px) {
+    .selected-quiz {
+        height: 140px;
+    }
+
+    .selected-quiz span {
+        font-size: 28px;
+    }
+    
+    .question-container {
+        width: 375px;
+        height: 436px;
+        margin-top: 26px;
+    }
+
+    .question-container h2 {
+        width: 92%;
+        height: 89px;
+        margin-bottom: 14px;
+        font-size: 19px;
+        text-align: center;
+    }
+
+    .question-container ul {
+        width: 92%;
+    }
+
+    .question-container li {
+        width: 164px;
+        margin-bottom: 18px;
+    }
+
+    .question-container span {
+        font-size: 13px;
+    }
+
+    .final-screen-container {
+        width: 375px;
+        height: 500px;
+        
+    }
+    
+    .final-screen-container div {
+        width: 92%;
+        flex-direction: column;
+    }
+    
+    .final-screen-container h2 {
+        width: 92%;
+        height: 100px;
+        margin-bottom: 9px;
+        font-size: 19px;
+        text-align: center;
+    }
+    
+    .final-screen-container img {
+        width: 345px;
+        max-height: 255px;
+        margin-bottom: 9px;
+    }
+    
+    .final-screen-container p {
+        width: 92%;
+        font-size: 17px;
+        margin-bottom: 9px;
+    }
+}
