@@ -1,0 +1,44 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
+
+
+/* Configuração para Desktops */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #EC322D;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selected-quizz {
+    margin-top: 70px;
+    width: 100%;
+    position: relative;
+}
+
+.selected-quizz img {
+    width: 100%;
+    max-height: 227px;
+}
+
+.selected-quizz span {
+    position: absolute;
+    z-index: 2;
+    top: 45%;
+    left: 35%;
+    color: #FFFFFF;
+    font-size: 40px;
+}
