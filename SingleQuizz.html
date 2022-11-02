@@ -11,17 +11,20 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <!--Esse header pode ser o mesmo para a página de listas e não será escondido pelo quiz aberto-->
     <header class="header-container-temp">
         <h1>BuzzQuizz</h1>
     </header>
-
+    
+    <!-- A classe hidden vem nessa div para esconder o quiz e vai ser removida quando clicar no respectivo quiz na lista-->
     <div class="quiz-overlay">
-        
+
+        <!--Banner do quiz selecionado-->
         <section class="selected-quiz">
             <span>O quão Potterhead você é?</span>
         </section>
 
+        <!--Bloco de pergunta-->
         <section class="question-container">
             <h2>Em qual animal Olho-torto Moody transfigurou Malfoy?</h2>
             <ul>
@@ -43,6 +46,7 @@
                 </li>
             </ul>
         </section>
+        <!--Bloco de pergunta-->
 
         <section class="question-container">
             <h2>Em qual animal Olho-torto Moody transfigurou Malfoy?</h2>
@@ -66,6 +70,7 @@
             </ul>
         </section>
 
+        <!--Bloco de pergunta-->
         <section class="question-container">
             <h2>Em qual animal Olho-torto Moody transfigurou Malfoy?</h2>
             <ul>
@@ -88,6 +93,7 @@
             </ul>
         </section>
 
+        <!--Tela Final onde será calculado a % de acerto e exibição da mensagem final-->
         <section class="final-screen-container">
             <h2>88% de acerto: Você é praticamente um aluno de Hogwarts!</h2>
             <div>
@@ -96,7 +102,7 @@
             </div>
         </section>
 
-
+        <!--Botões de reiniciar quizz e voltar para homepage-->
         <footer class="btn-container">
             <button class="redo-quiz">Reiniciar Quizz</button>
             <button class="return-btn">Voltar para Home</button>

@@ -23,6 +23,11 @@ header {
 
 /* Configuração para Desktops  - Início*/
 
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
 .quiz-overlay {
     display: flex;
     flex-direction: column;
@@ -256,3 +261,5 @@ header {
         margin-bottom: 9px;
     }
 }
+
+/* Reponsividade - Fim */
