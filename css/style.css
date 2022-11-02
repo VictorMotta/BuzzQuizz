@@ -180,10 +180,11 @@ header {
 
 .not-selected {
     opacity: 0.3;
+    pointer-events: none;
 }
 
 .correct span {
-    color: #009C22;
+    color: #009C22;    
 }
 
 .incorrect span {
