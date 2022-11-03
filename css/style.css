@@ -24,10 +24,95 @@ header {
 
 /* Configuração para Desktops  - Início*/
 
-.hidden {
-    display: none;
-    opacity: 0;
+/* primeira pagina  - Início*/
+
+.containerPg1 {
+    margin-top: 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
+
+.your-quizz {
+    margin-top: 77px;
+    width: 1051px;
+    height: 181px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px dashed #D4D4D4;
+}
+
+.textW {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 23px;
+    text-align: center;
+    color: #B9B9B9;
+    width: 250px;
+    height: 70px;
+}
+
+.create-quizz {
+    width: 151px;
+    height: 40px;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 25px;
+    text-align: center;
+    color: #EC362D;
+    border: 1px dashed #EC362D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+}
+
+.all-quizzes {
+    margin-top: 77px;
+    width: 1051px;
+}
+
+.title-all-quizzes {
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 23px;
+}
+
+.quizz-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 1051px;
+}
+
+.img-quizz {
+    width: 340px;
+    height: 181px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+}
+
+.title-quizz {
+    width: 300px;
+    height: 54px;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #ffffff;
+    margin-left: 18px;
+    margin-top: 120px;
+    display: flex;
+    align-items: center;
+}
+
+/* primeira pagina  - fim*/
+
 
 .quiz-overlay {
     display: flex;
