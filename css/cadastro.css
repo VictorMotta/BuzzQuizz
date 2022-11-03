@@ -283,22 +283,19 @@ button:hover {
     color: #fff;
 }
 
-.container-hidden-sucesso-criacao-quizz
-    > .container-sucesso-criacao-quizz
-    > a
-    .acessar-quizz-criado {
+.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > .acessar-quizz-criado {
     padding: 10px 45px;
     margin-top: 45px;
 }
 
-.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > a #voltar-home {
+.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > #voltar-home {
     background-color: #fafafa;
     color: #818181;
     transition: none;
     padding: 0;
     margin-top: 20px;
 }
-.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > a #voltar-home:hover {
+.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > #voltar-home:hover {
     background-color: #fafafa;
     border: none;
 }
@@ -308,6 +305,20 @@ button:hover {
 /* INICIO MOBILE  */
 
 @media (max-width: 1100px) {
+    body {
+        margin-top: 106px;
+    }
+    /* INICIO RESPONSIVIDADE ALL 100% */
+    .container-hidden-escolhe-nivel-quizz > .container-escolhe-nivel-quizz > .container-cria-nivel,
+    .container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > .img-quizz-criado,
+    .container-hidden-cria-info-basic > .container-cria-info-basic > .input-info-basics,
+    .container-hidden-cria-perguntas-resposta
+        > .container-cria-perguntas-resposta
+        > .container-cria-pergunta {
+        width: 100%;
+    }
+    /* FIM RESPONSIVIDADE ALL 100% */
+
     /* INICIO TELA INFO BASIC TELA 3.1  */
     button {
         width: 95%;
@@ -315,13 +326,76 @@ button:hover {
     }
 
     .container-hidden-cria-info-basic > .container-cria-info-basic > .input-info-basics {
-        width: 100%;
-    }
-    .container-hidden-cria-info-basic > .container-cria-info-basic > .input-info-basics {
         margin-bottom: 29px;
     }
 
     /* FIM TELA INFO BASIC TELA 3.1  */
 
     /* INICIO TELA CRIA PERGUNTA E RESPOSTA TELA 3.2 */
+    .container-hidden-cria-perguntas-resposta
+        > .container-cria-perguntas-resposta
+        > .container-cria-pergunta {
+        margin-top: 24px;
+        margin-bottom: 0;
+    }
+
+    .container-hidden-cria-perguntas-resposta > .container-cria-perguntas-resposta button {
+        width: 85%;
+        margin: 46px 0;
+    }
+    /* FIM TELA CRIA PERGUNTA E RESPOSTA TELA 3.2 */
+
+    /* INICIO TELA CRIA NIVEIS PERGUNTAS TELA 3.3  */
+
+    .container-hidden-escolhe-nivel-quizz
+        > .container-escolhe-nivel-quizz
+        > .container-cria-nivel
+        > .container-mostra-cria-nivel
+        > .descricao-do-nivel {
+        height: 177px;
+    }
+    .container-hidden-escolhe-nivel-quizz
+        > .container-escolhe-nivel-quizz
+        > .container-cria-nivel
+        > .container-mostra-cria-nivel
+        input::placeholder {
+        padding-left: 10px;
+    }
+
+    .container-hidden-escolhe-nivel-quizz > .container-escolhe-nivel-quizz > .container-cria-nivel {
+        margin-bottom: 0px;
+        margin-top: 28px;
+    }
+
+    .container-hidden-escolhe-nivel-quizz > .container-escolhe-nivel-quizz button {
+        margin: 28px 0;
+    }
+
+    /* FIM TELA CRIA NIVEIS PERGUNTAS TELA 3.3  */
+
+    /* INICIO TELA SUCESSO DO QUIZZ TELA 3.4  */
+
+    .container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > .img-quizz-criado {
+        width: 90%;
+        height: 181px;
+        margin-top: 29px;
+        background: linear-gradient(
+                180deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(0, 0, 0, 0.5) 65.62%,
+                rgba(0, 0, 0, 0.8) 100%
+            ),
+            url(../img/harry.jpeg) no-repeat;
+
+        background-size: 100%;
+    }
+
+    .container-hidden-sucesso-criacao-quizz
+        > .container-sucesso-criacao-quizz
+        > .acessar-quizz-criado {
+        width: 70%;
+        padding: 15px 45px;
+        margin-top: 24px;
+    }
+    /* FIM TELA SUCESSO DO QUIZZ TELA 3.4  */
 }
