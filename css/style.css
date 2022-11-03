@@ -1,8 +1,8 @@
 /* Google Fonts Import */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -11,14 +11,15 @@ header {
     left: 0;
     width: 100%;
     height: 70px;
-    background-color: #EC322D;
-    color: #FFFFFF;
+    background-color: #ec322d;
+    color: #ffffff;
     font-weight: 700;
     font-size: 36px;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 3;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 /* Configuração para Desktops  - Início*/
@@ -32,7 +33,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #FAFAFA;
+    background-color: #fafafa;
     transition: 0.6s ease-in-out;
 }
 
@@ -40,7 +41,8 @@ header {
     margin-top: 70px;
     width: 100%;
     height: 227px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/img/Rectangle42.png) center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url(/img/Rectangle42.png) center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,12 +52,12 @@ header {
     z-index: 2;
     top: 45%;
     left: 35%;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 40px;
 }
 
 .question-container {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -66,17 +68,18 @@ header {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
-.question-container h2, .final-screen-container h2 {
+.question-container h2,
+.final-screen-container h2 {
     width: 90%;
     height: 132px;
     display: flex;
-    background-color: #434CAD;
+    background-color: #434cad;
     margin-bottom: 20px;
     font-size: 22px;
     font-weight: 700;
     justify-content: center;
     align-items: center;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .question-container ul {
@@ -101,7 +104,7 @@ header {
 }
 
 .final-screen-container {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -121,7 +124,7 @@ header {
 
 .final-screen-container h2 {
     height: 100px;
-    background-color: #EC362D;
+    background-color: #ec362d;
 }
 
 .final-screen-container img {
@@ -144,7 +147,8 @@ header {
     align-items: center;
 }
 
-.redo-quiz, .return-btn {
+.redo-quiz,
+.return-btn {
     width: 260px;
     height: 50px;
     font-size: 21px;
@@ -156,8 +160,8 @@ header {
 }
 
 .redo-quiz {
-    background-color: #EC362D;
-    color: #FFFFFF;
+    background-color: #ec362d;
+    color: #ffffff;
 }
 
 .return-btn {
@@ -167,9 +171,9 @@ header {
 }
 
 .redo-quiz:hover {
-    background-color: #FAFAFA;
-    color: #EC362D;
-    border: 2px solid #EC362D;
+    background-color: #fafafa;
+    color: #ec362d;
+    border: 2px solid #ec362d;
     cursor: pointer;
 }
 
@@ -183,11 +187,11 @@ header {
 }
 
 .correct span {
-    color: #009C22;
+    color: #009c22;
 }
 
 .incorrect span {
-    color: #FF4B4B;
+    color: #ff4b4b;
 }
 
 /* Configuração para Desktops  - Fim*/
@@ -202,7 +206,7 @@ header {
     .selected-quiz span {
         font-size: 28px;
     }
-    
+
     .question-container {
         width: 375px;
         height: 436px;
@@ -233,14 +237,13 @@ header {
     .final-screen-container {
         width: 375px;
         height: 500px;
-        
     }
-    
+
     .final-screen-container div {
         width: 92%;
         flex-direction: column;
     }
-    
+
     .final-screen-container h2 {
         width: 92%;
         height: 100px;
@@ -248,13 +251,13 @@ header {
         font-size: 19px;
         text-align: center;
     }
-    
+
     .final-screen-container img {
         width: 345px;
         max-height: 255px;
         margin-bottom: 9px;
     }
-    
+
     .final-screen-container p {
         width: 92%;
         font-size: 17px;

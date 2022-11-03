@@ -1,0 +1,327 @@
+/* IMPORTANDO FONTE DO GOOGLE  */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/* HEADER ESTA NO ARQUIVO STYLE.CSS */
+* {
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: #fafafa;
+    margin-top: 140px;
+}
+
+/* CONFIGURAÇÃO DE DESAPARECER */
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+
+/* TUDO QUE É PADRÃO NO DESKTOP */
+h1 {
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 30px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+}
+
+input {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #d1d1d1;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+input::placeholder {
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 22px;
+    color: #bababa;
+    padding-left: 24px;
+}
+
+button {
+    border: none;
+    padding: 15px 50px;
+    background-color: #ec362d;
+    border-radius: 15px;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #fff5f4;
+    text-align: center;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+button:hover {
+    background-color: #fafafa;
+    color: #ec362d;
+    border: 2px solid #ec362d;
+    cursor: pointer;
+}
+
+.container-hidden-cria-info-basic,
+.container-hidden-cria-perguntas-resposta,
+.container-hidden-escolhe-nivel-quizz,
+.container-hidden-sucesso-criacao-quizz {
+    width: 100%;
+    height: 100%;
+}
+
+/* INICIO DESKTOP */
+
+/* INICIO TELA INFO BASIC TELA 3.1  */
+
+.container-hidden-cria-info-basic > .container-cria-info-basic {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-hidden-cria-info-basic > .container-cria-info-basic > .input-info-basics {
+    width: 600px;
+    height: 256px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 27px;
+    margin-bottom: 80px;
+    padding: 25px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+.container-hidden-cria-info-basic > .container-cria-info-basic > .input-info-basics > input {
+    width: 100%;
+    height: 25%;
+    margin-bottom: 9px;
+}
+
+/* FIM TELA INFO BASIC TELA 3.1  */
+
+/* INICIO TELA CRIA PERGUNTA E RESPOSTA TELA 3.2 */
+
+.container-hidden-cria-perguntas-resposta > .container-cria-perguntas-resposta {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-hidden-cria-perguntas-resposta
+    > .container-cria-perguntas-resposta
+    > .container-cria-pergunta {
+    width: 600px;
+    background-color: #fff;
+    padding: 27px 18px;
+    margin-bottom: 24px;
+    margin-top: 36px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+.container-hidden-cria-perguntas-resposta
+    > .container-cria-perguntas-resposta
+    > .container-cria-pergunta
+    > .menu-hidden-pergunta {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.container-hidden-cria-perguntas-resposta
+    > .container-cria-perguntas-resposta
+    > .container-cria-pergunta
+    > .menu-hidden-pergunta
+    img {
+    width: 26px;
+    cursor: pointer;
+}
+
+.container-hidden-cria-perguntas-resposta
+    > .container-cria-perguntas-resposta
+    > .container-cria-pergunta
+    > .container-mostra-cria-perguntas
+    input {
+    margin-bottom: 14px;
+}
+
+.container-hidden-cria-perguntas-resposta
+    > .container-cria-perguntas-resposta
+    > .container-cria-pergunta
+    > .container-mostra-cria-perguntas
+    > .pergunta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    margin-bottom: 28px;
+}
+
+.container-hidden-cria-perguntas-resposta
+    > .container-cria-perguntas-resposta
+    > .container-cria-pergunta
+    > .container-mostra-cria-perguntas
+    > .resposta-correta {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 28px;
+}
+
+.container-hidden-cria-perguntas-resposta
+    > .container-cria-perguntas-resposta
+    > .container-cria-pergunta
+    > .container-mostra-cria-perguntas
+    > .resposta-correta
+    h2 {
+    margin-bottom: 24px;
+}
+
+.container-hidden-cria-perguntas-resposta
+    > .container-cria-perguntas-resposta
+    > .container-cria-pergunta
+    > .container-mostra-cria-perguntas
+    > .respostas-incorretas
+    > .respota-incorreta-input {
+    margin-top: 34px;
+}
+
+.container-hidden-cria-perguntas-resposta > .container-cria-perguntas-resposta button {
+    margin-top: 81px;
+}
+
+/* FIM TELA CRIA PERGUNTA E RESPOSTA TELA 3.2 */
+
+/* INICIO TELA CRIA NIVEIS PERGUNTAS TELA 3.3  */
+
+.container-hidden-escolhe-nivel-quizz > .container-escolhe-nivel-quizz {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-hidden-escolhe-nivel-quizz > .container-escolhe-nivel-quizz > .container-cria-nivel {
+    width: 600px;
+    background-color: #fff;
+    padding: 27px 18px;
+    margin-bottom: 24px;
+    margin-top: 36px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.container-hidden-escolhe-nivel-quizz
+    > .container-escolhe-nivel-quizz
+    > .container-cria-nivel
+    > .menu-hidden-nivel {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.container-hidden-escolhe-nivel-quizz
+    > .container-escolhe-nivel-quizz
+    > .container-cria-nivel
+    > .menu-hidden-nivel
+    img {
+    width: 26px;
+    cursor: pointer;
+}
+
+.container-hidden-escolhe-nivel-quizz
+    > .container-escolhe-nivel-quizz
+    > .container-cria-nivel
+    > .container-mostra-cria-nivel
+    input {
+    margin-top: 14px;
+}
+
+.container-hidden-escolhe-nivel-quizz > .container-escolhe-nivel-quizz button {
+    padding: 15px 90px;
+    margin: 75px 0;
+}
+
+/* FIM TELA CRIA NIVEIS PERGUNTAS TELA 3.3  */
+
+/* INICIO TELA SUCESSO DO QUIZZ TELA 3.4  */
+
+.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > .img-quizz-criado {
+    width: 500px;
+    height: 266px;
+    margin-top: 46px;
+    position: relative;
+    background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(0, 0, 0, 0.5) 65.62%,
+            rgba(0, 0, 0, 0.8) 100%
+        ),
+        url(../img/harry.jpeg) no-repeat;
+
+    background-size: 100%;
+    border-radius: 5px;
+}
+
+.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > .img-quizz-criado h3 {
+    bottom: 10%;
+    left: 5%;
+    position: absolute;
+    font-weight: 400;
+    font-size: 23px;
+    word-wrap: break-word;
+    color: #fff;
+}
+
+.container-hidden-sucesso-criacao-quizz
+    > .container-sucesso-criacao-quizz
+    > a
+    .acessar-quizz-criado {
+    padding: 10px 45px;
+    margin-top: 45px;
+}
+
+.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > a #voltar-home {
+    background-color: #fafafa;
+    color: #818181;
+    transition: none;
+    padding: 0;
+    margin-top: 20px;
+}
+.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > a #voltar-home:hover {
+    background-color: #fafafa;
+    border: none;
+}
+
+/* FIM TELA SUCESSO DO QUIZZ TELA 3.4  */
+
+/* INICIO MOBILE  */
+
+@media (max-width: 1100px) {
+    /* INICIO TELA INFO BASIC TELA 3.1  */
+    button {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .container-hidden-cria-info-basic > .container-cria-info-basic > .input-info-basics {
+        width: 100%;
+    }
+    .container-hidden-cria-info-basic > .container-cria-info-basic > .input-info-basics {
+        margin-bottom: 29px;
+    }
+
+    /* FIM TELA INFO BASIC TELA 3.1  */
+
+    /* INICIO TELA CRIA PERGUNTA E RESPOSTA TELA 3.2 */
+}

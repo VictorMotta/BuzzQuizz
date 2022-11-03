@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cadastro | BuzzQuizz</title>
+        <link rel="stylesheet" href="../css/reset.css" />
+        <link rel="stylesheet" href="../css/style.css" />
+        <link rel="stylesheet" href="../css/cadastro.css" />
+    </head>
+    <body>
+        <!--Esse header pode ser o mesmo para a página de listas e não será escondido pelo quiz aberto-->
+        <header class="header-container-temp">
+            <h1>BuzzQuizz</h1>
+        </header>
+
+        <!-- Inicio div das informações básica do quizz tela 3.1 -->
+        <!-- Essa div e a que vai sumir por isso o nome hidden no meio -->
+        <div class="container-hidden-cria-info-basic">
+            <div class="container-cria-info-basic">
+                <h1>Comece pelo começo</h1>
+                <div class="input-info-basics">
+                    <input
+                        class="titulo-info-basic"
+                        type="text"
+                        placeholder="Título do seu quizz"
+                    />
+                    <input
+                        class="url-info-basic"
+                        type="text"
+                        placeholder="URL da Imagem do seu quizz"
+                    />
+                    <input
+                        class="qtd-perguntas-info-basic"
+                        type="text"
+                        placeholder="Quantidade de perguntas do quizz"
+                    />
+                    <input
+                        class="qtd-niveis-info-basic"
+                        type="text"
+                        placeholder="Quantidade de níveis do quizz"
+                    />
+                </div>
+                <button class="envia-info-basics">Prosseguir pra criar perguntas</button>
+            </div>
+        </div>
+        <!-- Fim div container-hidden-cria-info-basic -->
+        <!-- Inicio div das Perguntas do quizz tela 3.2 -->
+        <!-- Essa div e a que vai sumir por isso o nome hidden no meio -->
+        <div class="container-hidden-cria-perguntas-resposta hidden">
+            <div class="container-cria-perguntas-resposta">
+                <h1>Crie suas Perguntas</h1>
+                <!-- INICIO CONTAINER CRIA PERGUNTA  -->
+                <div class="container-cria-pergunta">
+                    <div class="menu-hidden-pergunta">
+                        <h2>Pergunta 1</h2>
+                    </div>
+                    <div class="container-mostra-cria-perguntas">
+                        <div class="pergunta">
+                            <input type="text" placeholder="Texto da Pegunta" />
+                            <input
+                                type="text"
+                                maxlength="7"
+                                placeholder="Cor de fundo da pergunta"
+                            />
+                        </div>
+                        <div class="resposta-correta">
+                            <h2>Resposta correta</h2>
+                            <input type="text" placeholder="Resposta Correta" />
+                            <input type="text" placeholder="URL da imagem" />
+                        </div>
+                        <div class="respostas-incorretas">
+                            <h2>Respostas incorretas</h2>
+                            <div class="respota-incorreta-input">
+                                <input type="text" placeholder="Resposta incorreta 1" />
+                                <input type="text" placeholder="URL da imagem 1" />
+                            </div>
+                            <div class="respota-incorreta-input">
+                                <input type="text" placeholder="Resposta incorreta 2" />
+                                <input type="text" placeholder="URL da imagem 2" />
+                            </div>
+                            <div class="respota-incorreta-input">
+                                <input type="text" placeholder="Resposta incorreta 3" />
+                                <input type="text" placeholder="URL da imagem 3" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIM CONTAINER CRIA PERGUNTA  -->
+                <!-- INICIO CONTAINER CRIA PERGUNTA  -->
+                <div class="container-cria-pergunta">
+                    <div class="menu-hidden-pergunta">
+                        <h2>Pergunta 2</h2>
+                        <img src="../img/button-mostra-cria-pergunta.svg" alt="" />
+                    </div>
+                    <div class="container-mostra-cria-perguntas hidden">
+                        <div class="pergunta">
+                            <input type="text" placeholder="Texto da Pegunta" />
+                            <input
+                                type="text"
+                                maxlength="7"
+                                placeholder="Cor de fundo da pergunta"
+                            />
+                        </div>
+                        <div class="resposta-correta">
+                            <h2>Resposta correta</h2>
+                            <input type="text" placeholder="Resposta Correta" />
+                            <input type="text" placeholder="URL da imagem" />
+                        </div>
+                        <div class="respostas-incorretas">
+                            <h2>Respostas incorretas</h2>
+                            <div class="respota-incorreta-input">
+                                <input type="text" placeholder="Resposta incorreta 1" />
+                                <input type="text" placeholder="URL da imagem 1" />
+                            </div>
+                            <div class="respota-incorreta-input">
+                                <input type="text" placeholder="Resposta incorreta 2" />
+                                <input type="text" placeholder="URL da imagem 2" />
+                            </div>
+                            <div class="respota-incorreta-input">
+                                <input type="text" placeholder="Resposta incorreta 3" />
+                                <input type="text" placeholder="URL da imagem 3" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIM CONTAINER CRIA PERGUNTA  -->
+                <!-- INICIO CONTAINER CRIA PERGUNTA  -->
+                <div class="container-cria-pergunta">
+                    <div class="menu-hidden-pergunta">
+                        <h2>Pergunta 3</h2>
+                        <img src="../img/button-mostra-cria-pergunta.svg" alt="" />
+                    </div>
+                    <div class="container-mostra-cria-perguntas hidden">
+                        <div class="pergunta">
+                            <input type="text" placeholder="Texto da Pegunta" />
+                            <input
+                                type="text"
+                                maxlength="7"
+                                placeholder="Cor de fundo da pergunta"
+                            />
+                        </div>
+                        <div class="resposta-correta">
+                            <h2>Resposta correta</h2>
+                            <input type="text" placeholder="Resposta Correta" />
+                            <input type="text" placeholder="URL da imagem" />
+                        </div>
+                        <div class="respostas-incorretas">
+                            <h2>Respostas incorretas</h2>
+                            <div class="respota-incorreta-input">
+                                <input type="text" placeholder="Resposta incorreta 1" />
+                                <input type="text" placeholder="URL da imagem 1" />
+                            </div>
+                            <div class="respota-incorreta-input">
+                                <input type="text" placeholder="Resposta incorreta 2" />
+                                <input type="text" placeholder="URL da imagem 2" />
+                            </div>
+                            <div class="respota-incorreta-input">
+                                <input type="text" placeholder="Resposta incorreta 3" />
+                                <input type="text" placeholder="URL da imagem 3" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FIM CONTAINER CRIA PERGUNTA  -->
+                <button class="envia-perguntas">Prosseguir pra criar níveis</button>
+            </div>
+        </div>
+        <!-- Fim div container-hidden-cria-pergunta-resposta-hidden -->
+        <!-- Inicio div do Escolher Nivel do quizz tela 3.3 -->
+        <!-- Essa div e a que vai sumir por isso o nome hidden no meio -->
+        <div class="container-hidden-escolhe-nivel-quizz hidden">
+            <div class="container-escolhe-nivel-quizz">
+                <h1>Agora, decida os níveis</h1>
+                <!-- Inicio div container-cria-nivel  -->
+                <div class="container-cria-nivel">
+                    <div class="menu-hidden-nivel">
+                        <h2>Nível 1</h2>
+                        <!-- <img src="../img/button-mostra-cria-pergunta.svg" alt="" /> -->
+                    </div>
+                    <div class="container-mostra-cria-nivel">
+                        <input type="text" placeholder="Titulo do Nível" />
+                        <input type="text" placeholder="% de acerto mínima" />
+                        <input type="text" placeholder="URL da imagem do nível" />
+                        <input type="text" placeholder="Descrição do nível" />
+                    </div>
+                </div>
+                <!-- Fim div container-cria-nivel  -->
+                <!-- Inicio div container-cria-nivel  -->
+                <div class="container-cria-nivel">
+                    <div class="menu-hidden-nivel">
+                        <h2>Nível 2</h2>
+                        <img src="../img/button-mostra-cria-pergunta.svg" alt="" />
+                    </div>
+                    <div class="container-mostra-cria-nivel hidden">
+                        <input type="text" placeholder="Titulo do Nível" />
+                        <input type="text" placeholder="% de acerto mínima" />
+                        <input type="text" placeholder="URL da imagem do nível" />
+                        <input type="text" placeholder="Descrição do nível" />
+                    </div>
+                </div>
+                <!-- Fim div container-cria-nivel  -->
+                <!-- Inicio div container-cria-nivel  -->
+                <div class="container-cria-nivel">
+                    <div class="menu-hidden-nivel">
+                        <h2>Nível 3</h2>
+                        <img src="../img/button-mostra-cria-pergunta.svg" alt="" />
+                    </div>
+                    <div class="container-mostra-cria-nivel hidden">
+                        <input type="text" placeholder="Titulo do Nível" />
+                        <input type="text" placeholder="% de acerto mínima" />
+                        <input type="text" placeholder="URL da imagem do nível" />
+                        <input type="text" placeholder="Descrição do nível" />
+                    </div>
+                </div>
+                <!-- Fim div container-cria-nivel  -->
+                <button class="finaliza-quizz">Finalizar Quizz</button>
+            </div>
+            <!-- Fim div container-escolhe-nivel-quizz  -->
+        </div>
+        <!-- Fim div Container-hidden-escolhe-nivel-quizz  -->
+        <!-- Inicio div container-hidden-sucesso-criacao-quizz  -->
+        <!-- Essa div e a que vai sumir por isso o nome hidden no meio -->
+        <div class="container-hidden-sucesso-criacao-quizz hidden">
+            <div class="container-sucesso-criacao-quizz">
+                <h1>Seu quizz está pronto!</h1>
+                <div class="img-quizz-criado">
+                    <h3>O quão Potterhead é você?</h3>
+                </div>
+                <a href="../SingleQuizz.html"
+                    ><button class="acessar-quizz-criado">Acessar Quizz</button></a
+                >
+                <a href="../index.html"><button id="voltar-home">Voltar pra home</button></a>
+            </div>
+        </div>
+        <!-- Fim div container-hidden-sucesso-criacao-quizz  -->
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+        ></script>
+        <script src="../js/cadastro.js"></script>
+    </body>
+</html>
