@@ -24,6 +24,11 @@ header {
 
 /* Configuração para Desktops  - Início*/
 
+.hidden {
+    display: none;
+    opacity: 0;
+}
+
 .quiz-overlay {
     display: flex;
     flex-direction: column;
@@ -198,7 +203,37 @@ header {
 
 /* Reponsividade - Início */
 
+/* responsivedade da primeira pagina - inicio*/
+
+@media (max-width: 1065px) {
+
+    .your-quizz {
+        width: 92%;
+    }
+
+    .all-quizzes {
+        width: 92%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .quizz-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .img-quizz {
+        margin-right: 18px;
+    }
+}
+
+/* responsivedade da primeira pagina - fim*/
+
 @media (max-width: 700px) {
+
     .selected-quiz {
         height: 140px;
     }
