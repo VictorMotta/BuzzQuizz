@@ -9,37 +9,34 @@ let contadorScroll = 1;
 const respostas = document.querySelectorAll(".option");
 respostas.forEach((resposta) => {
     resposta.addEventListener("click", function() {
-        const userSelection = document.querySelectorAll(".option");
+        const parent = resposta.closest(".question-container")
+        const userSelection = parent.querySelectorAll(".option");
         console.log("clique registrado");
-        userSelection.forEach(element=> {
+        userSelection.forEach(element => {
             if(element !== resposta) {
-                element.classList.add("not-selected");                          
+                element.classList.add("not-selected");
+            }
+            else {
+                element.classList.add("selected")
             }
         });
-        certoErrado()
         setTimeout(scrollarProxima, 2000)
     });
 });
 
-function certoErrado() {
-    const respostas = document.querySelectorAll(".option");
-    
-    respostas.forEach((resposta) => {
-        for(let i = 0; i < respostas.length; i++) {
-            if(resposta.classList.contains("wrong") && !resposta.classList.contains("incorrect")) {
-                resposta.classList.add("incorrect");
-            }
-            else {
-                resposta.classList.add("correct");
-            }
-        }  
-    })
-};
-
 function scrollarProxima() {
     const autoScroll = document.querySelectorAll(".question-container");
-    autoScroll[contadorScroll].scrollIntoView({block: "center"})
-    contadorScroll++
+    const endScreen = document.querySelector(".final-screen-container");
+
+    if(contadorScroll < autoScroll.length) {
+        autoScroll[contadorScroll].scrollIntoView({block: "center", behavior: "smooth"})
+        contadorScroll++ 
+    }
+    else {
+        endScreen.classList.remove("hidden");
+        endScreen.scrollIntoView({block: "center", behavior: "smooth"}) 
+        contadorScroll = 1;
+    }
 }
 //Funções comportamento de respostas - Fim
 

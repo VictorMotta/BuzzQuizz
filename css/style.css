@@ -24,11 +24,6 @@ header {
 
 /* Configuração para Desktops  - Início*/
 
-.hidden {
-    display: none;
-    opacity: 0;
-}
-
 .quiz-overlay {
     display: flex;
     flex-direction: column;
@@ -41,8 +36,7 @@ header {
     margin-top: 70px;
     width: 100%;
     height: 227px;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(/img/Rectangle42.png) center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/img/Rectangle42.png) center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -113,7 +107,6 @@ header {
     height: 450px;
     margin-top: 42px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 30px;
 }
 
 .final-screen-container div {
@@ -145,6 +138,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 30px;
 }
 
 .redo-quiz,
@@ -187,12 +181,17 @@ header {
     pointer-events: none;
 }
 
-.correct span {
+.wrong.not-selected span, .wrong.selected span {
+    color: #ff4b4b
+}
+
+.right.selected span, .right.not-selected span {
     color: #009c22;
 }
 
-.incorrect span {
-    color: #ff4b4b;
+.hidden {
+    display: none;
+    opacity: 0;
 }
 
 /* Configuração para Desktops  - Fim*/
