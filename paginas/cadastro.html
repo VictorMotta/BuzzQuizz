@@ -17,7 +17,7 @@
 
         <!-- Inicio div das informações básica do quizz tela 3.1 -->
         <!-- Essa div e a que vai sumir por isso o nome hidden no meio -->
-        <div class="container-hidden-cria-info-basic hidden">
+        <div class="container-hidden-cria-info-basic">
             <div class="container-cria-info-basic">
                 <h1>Comece pelo começo</h1>
                 <div class="input-info-basics">
@@ -55,7 +55,159 @@
         <div class="container-hidden-cria-perguntas-resposta hidden">
             <div class="container-cria-perguntas-resposta">
                 <h1>Crie suas Perguntas</h1>
-                <div class="qtd-perguntas-criar"></div>
+                <div class="qtd-perguntas-criar">
+                    <div class="container-cria-pergunta">
+                        <div class="menu-hidden-pergunta">
+                            <h2>Pergunta 1</h2>
+                        </div>
+                        <div class="container-mostra-cria-perguntas">
+                            <div class="pergunta">
+                                <input
+                                    minlength="20"
+                                    class="texto-pergunta"
+                                    type="text"
+                                    placeholder="Texto da Pegunta"
+                                />
+                                <input
+                                    class="cor-fundo-pergunta"
+                                    type="text"
+                                    maxlength="7"
+                                    placeholder="Cor de fundo da pergunta"
+                                />
+                            </div>
+                            <div class="resposta-correta">
+                                <h2>Resposta correta</h2>
+                                <input
+                                    class="input-resposta-correta"
+                                    type="text"
+                                    placeholder="Resposta Correta"
+                                />
+                                <input
+                                    class="img-resposta-correta"
+                                    type="text"
+                                    placeholder="URL da imagem"
+                                />
+                            </div>
+                            <div class="respostas-incorretas">
+                                <h2>Respostas incorretas</h2>
+                                <div class="respota-incorreta-input">
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 1"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 1"
+                                    />
+                                </div>
+                                <div class="respota-incorreta-input">
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 2"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 2"
+                                    />
+                                </div>
+                                <div class="respota-incorreta-input">
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 3"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 3"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-cria-pergunta">
+                        <div class="menu-hidden-pergunta">
+                            <h2>Pergunta ${qtdPergunta}</h2>
+                            <img
+                                onclick="abrirPergunta(this)"
+                                src="../img/button-mostra-cria-pergunta.svg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="container-mostra-cria-perguntas">
+                            <div class="pergunta">
+                                <input
+                                    minlength="20"
+                                    class="texto-pergunta"
+                                    type="text"
+                                    placeholder="Texto da Pegunta"
+                                />
+                                <input
+                                    class="cor-fundo-pergunta"
+                                    type="text"
+                                    maxlength="7"
+                                    placeholder="Cor de fundo da pergunta"
+                                />
+                            </div>
+                            <div class="resposta-correta">
+                                <h2>Resposta correta</h2>
+                                <input
+                                    class="input-resposta-correta"
+                                    type="text"
+                                    placeholder="Resposta Correta"
+                                />
+                                <input
+                                    class="img-resposta-correta"
+                                    type="text"
+                                    placeholder="URL da imagem"
+                                />
+                            </div>
+                            <div class="respostas-incorretas">
+                                <h2>Respostas incorretas</h2>
+                                <div class="respota-incorreta-input">
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 1"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 1"
+                                    />
+                                </div>
+                                <div class="respota-incorreta-input">
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 2"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 2"
+                                    />
+                                </div>
+                                <div class="respota-incorreta-input">
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 3"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 3"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <button onclick="prosseguirCriaNiveis(this)" class="envia-perguntas">
                     Prosseguir pra criar níveis
                 </button>
@@ -64,7 +216,7 @@
         <!-- Fim div container-hidden-cria-pergunta-resposta-hidden -->
         <!-- Inicio div do Escolher Nivel do quizz tela 3.3 -->
         <!-- Essa div e a que vai sumir por isso o nome hidden no meio -->
-        <div class="container-hidden-escolhe-nivel-quizz">
+        <div class="container-hidden-escolhe-nivel-quizz hidden">
             <div class="container-escolhe-nivel-quizz">
                 <h1>Agora, decida os níveis</h1>
                 <div class="qtd-niveis-criar">
