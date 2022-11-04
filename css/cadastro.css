@@ -117,6 +117,7 @@ button:hover {
 
 .container-hidden-cria-perguntas-resposta
     > .container-cria-perguntas-resposta
+    > .qtd-perguntas-criar
     > .container-cria-pergunta {
     width: 600px;
     background-color: #fff;
@@ -127,6 +128,7 @@ button:hover {
 }
 .container-hidden-cria-perguntas-resposta
     > .container-cria-perguntas-resposta
+    > .qtd-perguntas-criar
     > .container-cria-pergunta
     > .menu-hidden-pergunta {
     display: flex;
@@ -136,6 +138,7 @@ button:hover {
 
 .container-hidden-cria-perguntas-resposta
     > .container-cria-perguntas-resposta
+    > .qtd-perguntas-criar
     > .container-cria-pergunta
     > .menu-hidden-pergunta
     img {
@@ -145,6 +148,7 @@ button:hover {
 
 .container-hidden-cria-perguntas-resposta
     > .container-cria-perguntas-resposta
+    > .qtd-perguntas-criar
     > .container-cria-pergunta
     > .container-mostra-cria-perguntas
     input {
@@ -153,6 +157,7 @@ button:hover {
 
 .container-hidden-cria-perguntas-resposta
     > .container-cria-perguntas-resposta
+    > .qtd-perguntas-criar
     > .container-cria-pergunta
     > .container-mostra-cria-perguntas
     > .pergunta {
@@ -165,6 +170,7 @@ button:hover {
 
 .container-hidden-cria-perguntas-resposta
     > .container-cria-perguntas-resposta
+    > .qtd-perguntas-criar
     > .container-cria-pergunta
     > .container-mostra-cria-perguntas
     > .resposta-correta {
@@ -176,6 +182,7 @@ button:hover {
 
 .container-hidden-cria-perguntas-resposta
     > .container-cria-perguntas-resposta
+    > .qtd-perguntas-criar
     > .container-cria-pergunta
     > .container-mostra-cria-perguntas
     > .resposta-correta
@@ -185,6 +192,7 @@ button:hover {
 
 .container-hidden-cria-perguntas-resposta
     > .container-cria-perguntas-resposta
+    > .qtd-perguntas-criar
     > .container-cria-pergunta
     > .container-mostra-cria-perguntas
     > .respostas-incorretas

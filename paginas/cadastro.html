@@ -17,154 +17,125 @@
 
         <!-- Inicio div das informações básica do quizz tela 3.1 -->
         <!-- Essa div e a que vai sumir por isso o nome hidden no meio -->
-        <div class="container-hidden-cria-info-basic">
+        <div class="container-hidden-cria-info-basic hidden">
             <div class="container-cria-info-basic">
                 <h1>Comece pelo começo</h1>
                 <div class="input-info-basics">
                     <input
-                        class="titulo-info-basic"
+                        id="titulo-info-basic"
                         type="text"
                         placeholder="Título do seu quizz"
+                        minlength="20"
+                        maxlength="65"
                     />
                     <input
-                        class="url-info-basic"
+                        id="url-info-basic"
                         type="text"
                         placeholder="URL da Imagem do seu quizz"
                     />
                     <input
-                        class="qtd-perguntas-info-basic"
+                        id="qtd-perguntas-info-basic"
                         type="text"
                         placeholder="Quantidade de perguntas do quizz"
                     />
                     <input
-                        class="qtd-niveis-info-basic"
+                        id="qtd-niveis-info-basic"
                         type="text"
                         placeholder="Quantidade de níveis do quizz"
                     />
                 </div>
-                <button class="envia-info-basics">Prosseguir pra criar perguntas</button>
+                <button onclick="prosseguirCriarPergunta()" class="envia-info-basics">
+                    Prosseguir pra criar perguntas
+                </button>
             </div>
         </div>
         <!-- Fim div container-hidden-cria-info-basic -->
         <!-- Inicio div das Perguntas do quizz tela 3.2 -->
         <!-- Essa div e a que vai sumir por isso o nome hidden no meio -->
-        <div class="container-hidden-cria-perguntas-resposta hidden">
+        <div class="container-hidden-cria-perguntas-resposta">
             <div class="container-cria-perguntas-resposta">
                 <h1>Crie suas Perguntas</h1>
-                <!-- INICIO CONTAINER CRIA PERGUNTA  -->
-                <div class="container-cria-pergunta">
-                    <div class="menu-hidden-pergunta">
-                        <h2>Pergunta 1</h2>
+                <div class="qtd-perguntas-criar">
+                    <div class="container-cria-pergunta">
+                        <div class="menu-hidden-pergunta">
+                            <h2>Pergunta 1</h2>
+                        </div>
+                        <div class="container-mostra-cria-perguntas">
+                            <div class="pergunta">
+                                <input type="text" placeholder="Texto da Pegunta" />
+                                <input
+                                    type="text"
+                                    maxlength="7"
+                                    placeholder="Cor de fundo da pergunta"
+                                />
+                            </div>
+                            <div class="resposta-correta">
+                                <h2>Resposta correta</h2>
+                                <input type="text" placeholder="Resposta Correta" />
+                                <input type="text" placeholder="URL da imagem" />
+                            </div>
+                            <div class="respostas-incorretas">
+                                <h2>Respostas incorretas</h2>
+                                <div class="respota-incorreta-input">
+                                    <input type="text" placeholder="Resposta incorreta 1" />
+                                    <input type="text" placeholder="URL da imagem 1" />
+                                </div>
+                                <div class="respota-incorreta-input">
+                                    <input type="text" placeholder="Resposta incorreta 2" />
+                                    <input type="text" placeholder="URL da imagem 2" />
+                                </div>
+                                <div class="respota-incorreta-input">
+                                    <input type="text" placeholder="Resposta incorreta 3" />
+                                    <input type="text" placeholder="URL da imagem 3" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="container-mostra-cria-perguntas">
-                        <div class="pergunta">
-                            <input type="text" placeholder="Texto da Pegunta" />
-                            <input
-                                type="text"
-                                maxlength="7"
-                                placeholder="Cor de fundo da pergunta"
+
+                    <div class="container-cria-pergunta">
+                        <div class="menu-hidden-pergunta">
+                            <h2>Pergunta 2</h2>
+                            <img
+                                onclick="abrirPergunta(this)"
+                                src="../img/button-mostra-cria-pergunta.svg"
+                                alt=""
                             />
                         </div>
-                        <div class="resposta-correta">
-                            <h2>Resposta correta</h2>
-                            <input type="text" placeholder="Resposta Correta" />
-                            <input type="text" placeholder="URL da imagem" />
-                        </div>
-                        <div class="respostas-incorretas">
-                            <h2>Respostas incorretas</h2>
-                            <div class="respota-incorreta-input">
-                                <input type="text" placeholder="Resposta incorreta 1" />
-                                <input type="text" placeholder="URL da imagem 1" />
+                        <div class="container-mostra-cria-perguntas hidden">
+                            <div class="pergunta">
+                                <input type="text" placeholder="Texto da Pegunta" />
+                                <input
+                                    type="text"
+                                    maxlength="7"
+                                    placeholder="Cor de fundo da pergunta"
+                                />
                             </div>
-                            <div class="respota-incorreta-input">
-                                <input type="text" placeholder="Resposta incorreta 2" />
-                                <input type="text" placeholder="URL da imagem 2" />
+                            <div class="resposta-correta">
+                                <h2>Resposta correta</h2>
+                                <input type="text" placeholder="Resposta Correta" />
+                                <input type="text" placeholder="URL da imagem" />
                             </div>
-                            <div class="respota-incorreta-input">
-                                <input type="text" placeholder="Resposta incorreta 3" />
-                                <input type="text" placeholder="URL da imagem 3" />
+                            <div class="respostas-incorretas">
+                                <h2>Respostas incorretas</h2>
+                                <div class="respota-incorreta-input">
+                                    <input type="text" placeholder="Resposta incorreta 1" />
+                                    <input type="text" placeholder="URL da imagem 1" />
+                                </div>
+                                <div class="respota-incorreta-input">
+                                    <input type="text" placeholder="Resposta incorreta 2" />
+                                    <input type="text" placeholder="URL da imagem 2" />
+                                </div>
+                                <div class="respota-incorreta-input">
+                                    <input type="text" placeholder="Resposta incorreta 3" />
+                                    <input type="text" placeholder="URL da imagem 3" />
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- FIM CONTAINER CRIA PERGUNTA  -->
-                <!-- INICIO CONTAINER CRIA PERGUNTA  -->
-                <div class="container-cria-pergunta">
-                    <div class="menu-hidden-pergunta">
-                        <h2>Pergunta 2</h2>
-                        <img src="../img/button-mostra-cria-pergunta.svg" alt="" />
-                    </div>
-                    <div class="container-mostra-cria-perguntas hidden">
-                        <div class="pergunta">
-                            <input type="text" placeholder="Texto da Pegunta" />
-                            <input
-                                type="text"
-                                maxlength="7"
-                                placeholder="Cor de fundo da pergunta"
-                            />
-                        </div>
-                        <div class="resposta-correta">
-                            <h2>Resposta correta</h2>
-                            <input type="text" placeholder="Resposta Correta" />
-                            <input type="text" placeholder="URL da imagem" />
-                        </div>
-                        <div class="respostas-incorretas">
-                            <h2>Respostas incorretas</h2>
-                            <div class="respota-incorreta-input">
-                                <input type="text" placeholder="Resposta incorreta 1" />
-                                <input type="text" placeholder="URL da imagem 1" />
-                            </div>
-                            <div class="respota-incorreta-input">
-                                <input type="text" placeholder="Resposta incorreta 2" />
-                                <input type="text" placeholder="URL da imagem 2" />
-                            </div>
-                            <div class="respota-incorreta-input">
-                                <input type="text" placeholder="Resposta incorreta 3" />
-                                <input type="text" placeholder="URL da imagem 3" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- FIM CONTAINER CRIA PERGUNTA  -->
-                <!-- INICIO CONTAINER CRIA PERGUNTA  -->
-                <div class="container-cria-pergunta">
-                    <div class="menu-hidden-pergunta">
-                        <h2>Pergunta 3</h2>
-                        <img src="../img/button-mostra-cria-pergunta.svg" alt="" />
-                    </div>
-                    <div class="container-mostra-cria-perguntas hidden">
-                        <div class="pergunta">
-                            <input type="text" placeholder="Texto da Pegunta" />
-                            <input
-                                type="text"
-                                maxlength="7"
-                                placeholder="Cor de fundo da pergunta"
-                            />
-                        </div>
-                        <div class="resposta-correta">
-                            <h2>Resposta correta</h2>
-                            <input type="text" placeholder="Resposta Correta" />
-                            <input type="text" placeholder="URL da imagem" />
-                        </div>
-                        <div class="respostas-incorretas">
-                            <h2>Respostas incorretas</h2>
-                            <div class="respota-incorreta-input">
-                                <input type="text" placeholder="Resposta incorreta 1" />
-                                <input type="text" placeholder="URL da imagem 1" />
-                            </div>
-                            <div class="respota-incorreta-input">
-                                <input type="text" placeholder="Resposta incorreta 2" />
-                                <input type="text" placeholder="URL da imagem 2" />
-                            </div>
-                            <div class="respota-incorreta-input">
-                                <input type="text" placeholder="Resposta incorreta 3" />
-                                <input type="text" placeholder="URL da imagem 3" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- FIM CONTAINER CRIA PERGUNTA  -->
-                <button class="envia-perguntas">Prosseguir pra criar níveis</button>
+                <button onclick="prosseguirCriaNiveis()" class="envia-perguntas">
+                    Prosseguir pra criar níveis
+                </button>
             </div>
         </div>
         <!-- Fim div container-hidden-cria-pergunta-resposta-hidden -->
