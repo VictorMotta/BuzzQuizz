@@ -62,8 +62,14 @@
                         </div>
                         <div class="container-mostra-cria-perguntas">
                             <div class="pergunta">
-                                <input type="text" placeholder="Texto da Pegunta" />
                                 <input
+                                    minlength="20"
+                                    class="texto-pergunta"
+                                    type="text"
+                                    placeholder="Texto da Pegunta"
+                                />
+                                <input
+                                    class="cor-fundo-pergunta"
                                     type="text"
                                     maxlength="7"
                                     placeholder="Cor de fundo da pergunta"
@@ -71,22 +77,54 @@
                             </div>
                             <div class="resposta-correta">
                                 <h2>Resposta correta</h2>
-                                <input type="text" placeholder="Resposta Correta" />
-                                <input type="text" placeholder="URL da imagem" />
+                                <input
+                                    class="input-resposta-correta"
+                                    type="text"
+                                    placeholder="Resposta Correta"
+                                />
+                                <input
+                                    class="img-resposta-correta"
+                                    type="text"
+                                    placeholder="URL da imagem"
+                                />
                             </div>
                             <div class="respostas-incorretas">
                                 <h2>Respostas incorretas</h2>
                                 <div class="respota-incorreta-input">
-                                    <input type="text" placeholder="Resposta incorreta 1" />
-                                    <input type="text" placeholder="URL da imagem 1" />
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 1"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 1"
+                                    />
                                 </div>
                                 <div class="respota-incorreta-input">
-                                    <input type="text" placeholder="Resposta incorreta 2" />
-                                    <input type="text" placeholder="URL da imagem 2" />
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 2"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 2"
+                                    />
                                 </div>
                                 <div class="respota-incorreta-input">
-                                    <input type="text" placeholder="Resposta incorreta 3" />
-                                    <input type="text" placeholder="URL da imagem 3" />
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 3"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 3"
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -103,8 +141,14 @@
                         </div>
                         <div class="container-mostra-cria-perguntas hidden">
                             <div class="pergunta">
-                                <input type="text" placeholder="Texto da Pegunta" />
                                 <input
+                                    minlength="20"
+                                    class="texto-pergunta"
+                                    type="text"
+                                    placeholder="Texto da Pegunta"
+                                />
+                                <input
+                                    class="cor-fundo-pergunta"
                                     type="text"
                                     maxlength="7"
                                     placeholder="Cor de fundo da pergunta"
@@ -112,28 +156,60 @@
                             </div>
                             <div class="resposta-correta">
                                 <h2>Resposta correta</h2>
-                                <input type="text" placeholder="Resposta Correta" />
-                                <input type="text" placeholder="URL da imagem" />
+                                <input
+                                    class="input-resposta-correta"
+                                    type="text"
+                                    placeholder="Resposta Correta"
+                                />
+                                <input
+                                    class="img-resposta-correta"
+                                    type="text"
+                                    placeholder="URL da imagem"
+                                />
                             </div>
                             <div class="respostas-incorretas">
                                 <h2>Respostas incorretas</h2>
                                 <div class="respota-incorreta-input">
-                                    <input type="text" placeholder="Resposta incorreta 1" />
-                                    <input type="text" placeholder="URL da imagem 1" />
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 1"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 1"
+                                    />
                                 </div>
                                 <div class="respota-incorreta-input">
-                                    <input type="text" placeholder="Resposta incorreta 2" />
-                                    <input type="text" placeholder="URL da imagem 2" />
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 2"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 2"
+                                    />
                                 </div>
                                 <div class="respota-incorreta-input">
-                                    <input type="text" placeholder="Resposta incorreta 3" />
-                                    <input type="text" placeholder="URL da imagem 3" />
+                                    <input
+                                        class="resposta-incorreta"
+                                        type="text"
+                                        placeholder="Resposta incorreta 3"
+                                    />
+                                    <input
+                                        class="img-resposta-incorreta"
+                                        type="text"
+                                        placeholder="URL da imagem 3"
+                                    />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button onclick="prosseguirCriaNiveis()" class="envia-perguntas">
+                <button onclick="prosseguirCriaPerguntas(this)" class="envia-perguntas">
                     Prosseguir pra criar níveis
                 </button>
             </div>
