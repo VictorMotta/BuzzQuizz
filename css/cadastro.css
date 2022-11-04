@@ -214,7 +214,10 @@ button:hover {
     flex-direction: column;
 }
 
-.container-hidden-escolhe-nivel-quizz > .container-escolhe-nivel-quizz > .container-cria-nivel {
+.container-hidden-escolhe-nivel-quizz
+    > .container-escolhe-nivel-quizz
+    > .qtd-niveis-criar
+    > .container-cria-nivel {
     width: 600px;
     background-color: #fff;
     padding: 27px 18px;
@@ -225,6 +228,7 @@ button:hover {
 
 .container-hidden-escolhe-nivel-quizz
     > .container-escolhe-nivel-quizz
+    > .qtd-niveis-criar
     > .container-cria-nivel
     > .menu-hidden-nivel {
     display: flex;
@@ -234,6 +238,7 @@ button:hover {
 
 .container-hidden-escolhe-nivel-quizz
     > .container-escolhe-nivel-quizz
+    > .qtd-niveis-criar
     > .container-cria-nivel
     > .menu-hidden-nivel
     img {
@@ -243,6 +248,7 @@ button:hover {
 
 .container-hidden-escolhe-nivel-quizz
     > .container-escolhe-nivel-quizz
+    > .qtd-niveis-criar
     > .container-cria-nivel
     > .container-mostra-cria-nivel
     input {

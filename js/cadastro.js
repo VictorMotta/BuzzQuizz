@@ -1,11 +1,15 @@
 let tituloCriadoQuizz, urlCriadoQuizz, qtdPerguntasCriadasTotais, qtdNiveisCriadosTotais;
-let questions = [];
+let questions = [],
+    levels = [];
+
+let verificacaoAcertoMinimo = [];
+
 let boleanTituloQuizzInfoBasic = false,
     boleanUrlQuizzInfoBasic = false,
     boleanQtdPerguntasQuizzInfoBasic = false,
     boleanQtdNiveisQuizzInfoBasic = false;
+
 let prosseguir = true;
-let testeTrue = false;
 
 function prosseguirCriarPergunta() {
     const containerHiddenInfoBasic = document.querySelector(".container-hidden-cria-info-basic");
@@ -15,68 +19,21 @@ function prosseguirCriarPergunta() {
 
     testaInputsCriaInfoBuzz();
 
-    setTimeout(() => {
-        console.log(boleanTituloQuizzInfoBasic);
-        console.log(boleanQtdPerguntasQuizzInfoBasic);
-        console.log(boleanQtdNiveisQuizzInfoBasic);
-        console.log(boleanUrlQuizzInfoBasic);
-        console.log(boleanUrlQuizzInfoBasic);
-        if (
-            boleanTituloQuizzInfoBasic &&
-            boleanUrlQuizzInfoBasic &&
-            boleanQtdPerguntasQuizzInfoBasic &&
-            boleanQtdNiveisQuizzInfoBasic
-        ) {
-            console.log(qtdPerguntasCriadasTotais);
-            adicionaQtdPerguntas();
-            containerHiddenInfoBasic.classList.add("hidden");
-            containerHiddenCriaPerguntas.classList.remove("hidden");
-            testeTrue = false;
-        }
-    }, 1000);
+    if (
+        boleanTituloQuizzInfoBasic &&
+        boleanUrlQuizzInfoBasic &&
+        boleanQtdPerguntasQuizzInfoBasic &&
+        boleanQtdNiveisQuizzInfoBasic
+    ) {
+        console.log(qtdPerguntasCriadasTotais);
+        adicionaQtdPerguntas();
+        containerHiddenInfoBasic.classList.add("hidden");
+        containerHiddenCriaPerguntas.classList.remove("hidden");
+    }
 }
 // Inicio Primeira Tela 3.1
 // Essa função verifica se o link é de uma imagem mesmo
 
-function is_img(file, input) {
-    let ajax = new XMLHttpRequest();
-    ajax.open("GET", file, true);
-    ajax.send();
-
-    ajax.onreadystatechange = function () {
-        if (ajax.readyState == 4) {
-            var jpg = ajax.responseText;
-            console.log(ajax.status);
-            if (ajax.status === 200) {
-                urlCriadoQuizz = file;
-                testeTrue = true;
-                console.log("A imagem " + file + " existe");
-                input.style.border = "1px solid #d1d1d1";
-            } else {
-                testeTrue = false;
-                console.log("A imagem " + file + " NAO existe");
-                alert("Digite um URL de imagem válido!");
-                input.style.border = "1px solid red";
-            }
-        }
-    };
-}
-
-function verificaSeImagem(url) {
-    window.addEventListener("load", (event) => {
-        let image = new Image();
-        image.src = url;
-
-        image.addEventListener("load", () => {
-            testeTrue = true;
-            console.log("Deu certo!");
-        });
-        image.addEventListener("error", () => {
-            testeTrue = false;
-            console.log("Deu erro!");
-        });
-    });
-}
 function testaInputsCriaInfoBuzz() {
     const inputTituloQuizzInfoBasic = document.querySelector("#titulo-info-basic");
     const inputUrlQuizzInfoBasic = document.querySelector("#url-info-basic");
@@ -112,6 +69,7 @@ function testaInputsCriaInfoBuzz() {
         try {
             let url = new URL(inputUrlQuizzInfoBasic.value);
             console.log("Valid URL!");
+            urlCriadoQuizz = inputUrlQuizzInfoBasic.value;
             boleanUrlQuizzInfoBasic = true;
         } catch (err) {
             console.log("Invalid URL!");
@@ -187,15 +145,15 @@ function adicionaQtdPerguntas() {
                 <h2>Respostas incorretas</h2>
                 <div class="respota-incorreta-input">
                     <input class="resposta-incorreta" type="text" placeholder="Resposta incorreta 1" />
-                    <input class="img-resposta-icorreta" type="text" placeholder="URL da imagem 1" />
+                    <input class="img-resposta-incorreta" type="text" placeholder="URL da imagem 1" />
                 </div>
                 <div class="respota-incorreta-input">
                     <input class="resposta-incorreta" type="text" placeholder="Resposta incorreta 2" />
-                    <input class="img-resposta-icorreta" type="text" placeholder="URL da imagem 2" />
+                    <input class="img-resposta-incorreta" type="text" placeholder="URL da imagem 2" />
                 </div>
                 <div class="respota-incorreta-input">
                     <input class="resposta-incorreta" type="text" placeholder="Resposta incorreta 3" />
-                    <input class="img-resposta-icorreta" type="text" placeholder="URL da imagem 3" />
+                    <input class="img-resposta-incorreta" type="text" placeholder="URL da imagem 3" />
                 </div>
             </div>
         </div>
@@ -228,15 +186,15 @@ function adicionaQtdPerguntas() {
                     <h2>Respostas incorretas</h2>
                     <div class="respota-incorreta-input">
                         <input class="resposta-incorreta" type="text" placeholder="Resposta incorreta 1" />
-                        <input class="img-resposta-icorreta" type="text" placeholder="URL da imagem 1" />
+                        <input class="img-resposta-incorreta" type="text" placeholder="URL da imagem 1" />
                     </div>
                     <div class="respota-incorreta-input">
                         <input class="resposta-incorreta" type="text" placeholder="Resposta incorreta 2" />
-                        <input class="img-resposta-icorreta" type="text" placeholder="URL da imagem 2" />
+                        <input class="img-resposta-incorreta" type="text" placeholder="URL da imagem 2" />
                     </div>
                     <div class="respota-incorreta-input">
                         <input class="resposta-incorreta" type="text" placeholder="Resposta incorreta 3" />
-                        <input class="img-resposta-icorreta" type="text" placeholder="URL da imagem 3" />
+                        <input class="img-resposta-incorreta" type="text" placeholder="URL da imagem 3" />
                     </div>
                 </div>
             </div>
@@ -253,10 +211,16 @@ function abrirPergunta(elemento) {
     tiraHidden.classList.toggle("hidden");
 }
 
-function prosseguirCriaPerguntas(elemento) {
+// Função para enviar e prosseguir com as peguntas
+
+function prosseguirCriaNiveis(elemento) {
+    prosseguir = true;
     questions = [];
     const allContainerCriaPergunta = document.querySelectorAll(".container-cria-pergunta");
     const containerHiddenCriaPerguntas = elemento.parentNode.parentNode;
+    const containerHiddenCriaNiveis = document.querySelector(
+        ".container-hidden-escolhe-nivel-quizz"
+    );
 
     for (let i = 0; i < allContainerCriaPergunta.length; i++) {
         let objectProsseguir = testaInputsCriaPerguntasBuzz(allContainerCriaPergunta[i]);
@@ -266,11 +230,13 @@ function prosseguirCriaPerguntas(elemento) {
 
     if (prosseguir) {
         containerHiddenCriaPerguntas.classList.add("hidden");
+        containerHiddenCriaNiveis.classList.remove("hidden");
     } else {
         alert("Conserte as áreas em vermelho! ");
-        prosseguir = true;
     }
 }
+
+// função testando perguntas funcionais
 
 function testaInputsCriaPerguntasBuzz(elemento) {
     let verificaTitulo = false,
@@ -307,7 +273,6 @@ function testaInputsCriaPerguntasBuzz(elemento) {
     if (corPergunta.value.length != 7) {
         corPergunta.style.border = "1px solid red";
         alert(`Coloque apenas um total de 7 caracteres! Corrija a ${qualPergunta}`);
-
         verificaCorFundo = false;
     } else {
         if (!hexadecimal.test(corPergunta.value)) {
@@ -485,29 +450,7 @@ function testaInputsCriaPerguntasBuzz(elemento) {
         verificaRespostaIncorreta1 &&
         verificaImgRespostaIncorreta1
     ) {
-        if (verificaRespImgIncorreta2) {
-            return {
-                title: perguntaInput.value,
-                color: corPergunta.value,
-                answers: [
-                    {
-                        text: respostaCorretaInput.value,
-                        image: imagemRespostaCorretaInput.value,
-                        isCorrectAnswer: true,
-                    },
-                    {
-                        text: respostasIncorretaInputsList[0].value,
-                        image: imagemRespostasIncorretaInputsList[0].value,
-                        isCorrectAnswer: false,
-                    },
-                    {
-                        text: respostasIncorretaInputsList[1].value,
-                        image: imagemRespostasIncorretaInputsList[1].value,
-                        isCorrectAnswer: false,
-                    },
-                ],
-            };
-        } else if (verificaRespImgIncorreta2 && verificaRespImgIncorreta3) {
+        if (verificaRespImgIncorreta2 && verificaRespImgIncorreta3) {
             return {
                 title: perguntaInput.value,
                 color: corPergunta.value,
@@ -534,6 +477,28 @@ function testaInputsCriaPerguntasBuzz(elemento) {
                     },
                 ],
             };
+        } else if (verificaRespImgIncorreta2 && !verificaRespImgIncorreta3) {
+            return {
+                title: perguntaInput.value,
+                color: corPergunta.value,
+                answers: [
+                    {
+                        text: respostaCorretaInput.value,
+                        image: imagemRespostaCorretaInput.value,
+                        isCorrectAnswer: true,
+                    },
+                    {
+                        text: respostasIncorretaInputsList[0].value,
+                        image: imagemRespostasIncorretaInputsList[0].value,
+                        isCorrectAnswer: false,
+                    },
+                    {
+                        text: respostasIncorretaInputsList[1].value,
+                        image: imagemRespostasIncorretaInputsList[1].value,
+                        isCorrectAnswer: false,
+                    },
+                ],
+            };
         }
         return {
             title: perguntaInput.value,
@@ -553,5 +518,104 @@ function testaInputsCriaPerguntasBuzz(elemento) {
         };
     } else {
         prosseguir = false;
+    }
+}
+
+// Fim segunda Tela 3.2
+// Inicio terceira Tela 3.3
+
+function adicionaQtdNiveis() {
+    const containerQtdCriaNiveis = document.querySelector(".qtd-niveis-criar");
+    containerQtdCriaNiveis.innerHTML = `
+                    <div class="container-cria-nivel">
+                        <div class="menu-hidden-nivel">
+                            <h2>Nível 1</h2>
+                            <!-- <img src="../img/button-mostra-cria-pergunta.svg" alt="" /> -->
+                        </div>
+                        <div class="container-mostra-cria-nivel">
+                        <input class="titulo-cria-nivel" minlength="10" type="text" placeholder="Titulo do Nível" />
+                        <input class="acerto-minimo-cria-nivel" maxlength="3" type="text" placeholder="% de acerto mínima" />
+                        <input class="url-imagem-cria-nivel" type="text" placeholder="URL da imagem do nível" />
+                        <input class="descricao-cria-nivel" minlength="30" type="text" placeholder="Descrição do nível" />
+                        </div>
+                    </div>
+                `;
+
+    for (let i = 1; i < qtdNiveisCriadosTotais; i++) {
+        containerQtdCriaNiveis.innerHTML += `
+                    <div class="container-cria-nivel">
+                        <div class="menu-hidden-nivel">
+                            <h2>Nível ${i + 1}</h2>
+                            <img onclick="abrirNivel(this)" src="../img/button-mostra-cria-pergunta.svg" alt="" />
+                        </div>
+                        <div class="container-mostra-cria-nivel hidden">
+                            <input class="titulo-cria-nivel" minlength="10" type="text" placeholder="Titulo do Nível" />
+                            <input class="acerto-minimo-cria-nivel" maxlength="3" type="text" placeholder="% de acerto mínima" />
+                            <input class="url-imagem-cria-nivel" type="text" placeholder="URL da imagem do nível" />
+                            <input class="descricao-cria-nivel" minlength="30" type="text" placeholder="Descrição do nível" />
+                        </div>
+                    </div>
+                `;
+    }
+}
+
+// algo apenas visual
+function abrirNivel(elemento) {
+    const containerCriaNivel = elemento.parentNode.parentNode;
+    const tiraHidden = containerCriaNivel.querySelector(".container-mostra-cria-nivel");
+
+    tiraHidden.classList.toggle("hidden");
+}
+
+function prosseguirCriaSucessoBuzzQuizz(elemento) {
+    verificacaoAcertoMinimo = [];
+    prosseguir = true;
+    levels = [];
+    const allContainerCriaNiveis = document.querySelectorAll(".container-cria-nivel");
+
+    for (let i = 0; i < allContainerCriaNiveis.length; i++) {
+        let objectProsseguir = testaInputsCriaNiveis(allContainerCriaNiveis[i]);
+        levels.push(objectProsseguir);
+    }
+    console.log(questions);
+    console.log(verificacaoAcertoMinimo);
+}
+
+function testaInputsCriaNiveis(elemento) {
+    const verificaSeNumero = /[0-9]{3}$/i;
+    let verificaTituloNivel = false;
+
+    const qualNivel = elemento.querySelector(".menu-hidden-nivel h2").innerHTML;
+    const inputTituloCriaNivel = elemento.querySelector(".titulo-cria-nivel");
+    const inputPorcentagemMinimaNivel = elemento.querySelector(".acerto-minimo-cria-nivel");
+    const numeroPorcentagemMinimaNivel = Number(inputPorcentagemMinimaNivel.value);
+    console.log(numeroPorcentagemMinimaNivel);
+    // Verifica o tamanho do que foi digitado no titulo
+
+    if (inputTituloCriaNivel.value.length > inputTituloCriaNivel.minLength) {
+        inputTituloCriaNivel.style.border = "1px solid #d1d1d1";
+        console.log(`${qualNivel}: Titulo nível foi digitado corretamente!`);
+        verificaTituloNivel = true;
+    } else {
+        inputTituloCriaNivel.style.border = "1px solid red";
+        alert(`Titulo nível não pode ter menos de 10 caracteres! Corrija o ${qualNivel}`);
+        verificaTituloNivel = false;
+    }
+    console.log("verifica se numero" + verificaSeNumero.test(numeroPorcentagemMinimaNivel));
+    console.log(
+        "verifica se tamanho max" + inputPorcentagemMinimaNivel.value.length <
+            inputPorcentagemMinimaNivel.maxLength
+    );
+    // Verifica a porcentagem minima de acerto
+    if (inputPorcentagemMinimaNivel.value.length <= inputPorcentagemMinimaNivel.maxLength) {
+        if (
+            verificaSeNumero.test(numeroPorcentagemMinimaNivel) &&
+            verificaSeNumero > 0 &&
+            verificaSeNumero < 100
+        ) {
+            verificacaoAcertoMinimo.push(numeroPorcentagemMinimaNivel);
+        } else {
+            alert("");
+        }
     }
 }
