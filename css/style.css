@@ -209,7 +209,12 @@ header {
     display: flex;
     flex-direction: column;
     width: 330px;
+    max-height: 200px;
     margin-bottom: 18px;
+}
+
+.question-container img {
+    height: 175px; 
 }
 
 .question-container span {
@@ -388,7 +393,13 @@ header {
 
     .question-container li {
         width: 164px;
+        max-height: 132px;
         margin-bottom: 18px;
+    }
+
+    .question-container img {
+        width: 164px;
+        max-height: 112px;
     }
 
     .question-container span {
