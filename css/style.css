@@ -176,6 +176,7 @@ header {
     display: flex;
     flex-direction: column;
     width: 330px;
+    max-height: 175px;
     margin-bottom: 18px;
 }
 
@@ -346,7 +347,13 @@ header {
 
     .question-container li {
         width: 164px;
+        max-height: 112px;
         margin-bottom: 18px;
+    }
+
+    .question-container img {
+        width: 164px;
+        max-height: 112px;
     }
 
     .question-container span {
