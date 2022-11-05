@@ -5,6 +5,10 @@ body {
     font-family: "Roboto", sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -136,6 +140,10 @@ header {
     color: #EC362D;
     font-size: 31px;
     cursor: pointer;
+
+}
+
+.linkionicon {
     margin-left: 139px;
     margin-bottom: 10px;
     position: absolute;

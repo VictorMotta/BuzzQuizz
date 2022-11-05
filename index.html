@@ -18,13 +18,17 @@
     <div class="containerPg1">
         <section class="your-quizz  ">
             <h1 class="textW">Você não criou nenhum quizz ainda :(</h1>
-            <div class="create-quizz"> Criar Quizz </div>
+            <a href="/paginas/cadastro.html">
+                <div class="create-quizz"> Criar Quizz </div>
+            </a>
         </section>
 
-        <section class="your-quizzes none">
+        <section class="your-quizzes">
             <div class="containertitle">
                 <h1 class="title-all-quizzes">Seus Quizzes</h1>
-                <ion-icon class="firstionicon" name="add-circle"></ion-icon>
+                <a class="linkionicon" href="/paginas/cadastro.html">
+                    <ion-icon class="firstionicon" name="add-circle"></ion-icon>
+                </a>
             </div>
             <ul class="quizz-list">
                 <li class="img-quizz" style="  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
@@ -59,14 +63,14 @@
 
         <!--Bloco de perguntas-->
         <section class="main-container">
-        
+
         </section>
         <!--Bloco de perguntas-->
-        
+
 
         <!--Tela Final onde será calculado a % de acerto e exibição da mensagem final-->
         <section class="final-screen-container hidden">
-    
+
         </section>
 
         <!--Botões de reiniciar quizz e voltar para homepage-->
@@ -74,7 +78,7 @@
             <button class="redo-quiz">Reiniciar Quizz</button>
             <button onclick="returnHome()" class="return-btn">Voltar para Home</button>
         </footer>
-    </div>   
+    </div>
 
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
