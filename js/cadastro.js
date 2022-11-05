@@ -153,7 +153,7 @@ function adicionaQtdPerguntas() {
                 <h2>Pergunta ${qtdPergunta}</h2>
                 <img onclick="abrirPergunta(this)" src="../img/button-mostra-cria-pergunta.svg" alt="" />
             </div>
-            <div class="container-mostra-cria-perguntas">
+            <div class="container-mostra-cria-perguntas hidden">
                 <div class="pergunta">
                     <input minlength="20" class="texto-pergunta" type="text" placeholder="Texto da Pegunta" />
                     <input
@@ -444,6 +444,7 @@ function prosseguirCriaNiveis(elemento) {
     if (verifica) {
         containerHiddenCriaPerguntas.classList.add("hidden");
         containerHiddenCriaNiveis.classList.remove("hidden");
+        adicionaQtdNiveis();
     } else {
         alert("Conserte as áreas em vermelho! ");
     }
@@ -633,8 +634,37 @@ function enviaQuizzApi(quizz) {
     const promisse = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", quizz);
 
     promisse.then(enviaQuizzSucesso);
+    promisse.catch(enviaQuizzError);
 }
 
 function enviaQuizzSucesso(resposta) {
-    console.log(resposta.data);
+    let listaSerializados = JSON.stringify(resposta.data);
+
+    localStorage.setItem(`${resposta.data.id}`, listaSerializados);
+
+    mostraTelaSucessoCriacaoBuzzQuizz(resposta.data);
+}
+
+function enviaQuizzError(resposta) {
+    alert("Erro ao enviar, tente novamente mais tarde!");
+    console.log(resposta.response.data);
+    window.location.reload();
+}
+
+function mostraTelaSucessoCriacaoBuzzQuizz(elemento) {
+    const containerHiddenCriaNiveis = document.querySelector(
+        ".container-hidden-escolhe-nivel-quizz"
+    );
+    const containerShowCriaSucessoBuzQuizz = document.querySelector(
+        ".container-hidden-sucesso-criacao-quizz"
+    );
+    const imgSucessoQuizzChange = document.querySelector(".img-quizz-criado");
+
+    imgSucessoQuizzChange.innerHTML = `
+    <img src="${elemento.image}" alt="" />
+    <h3>${elemento.title}</h3>
+    <div class="linear-gradient"></div>`;
+
+    containerHiddenCriaNiveis.classList.add("hidden");
+    containerShowCriaSucessoBuzQuizz.classList.remove("hidden");
 }
