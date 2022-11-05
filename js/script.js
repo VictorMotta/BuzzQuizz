@@ -1,3 +1,30 @@
+
+//requisação dos quizzes na api 
+function DisplayQuizzes() {
+
+    let quizzes = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/');
+    quizzes.then(deucerto);
+}
+DisplayQuizzes();
+
+function deucerto(answer) {
+
+    let listaquizzes = document.querySelector(".quizz-list-api");
+    let quizz = "";
+
+    for (let i = 0; i < answer.data.length; i++) {
+        quizz = answer.data[i];
+
+        listaquizzes.innerHTML +=
+            `<li class="img-quizz" style="  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
+                url(${quizz.image});
+                background-size: 100%;">
+                 <h2 class="title-quizz">${quizz.title}</h2>
+            </li>`
+    }
+}
+
+
 // Global Variables
 let contadorScroll = 1;
 let quizData;

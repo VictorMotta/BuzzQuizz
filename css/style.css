@@ -44,6 +44,7 @@ header {
     justify-content: center;
     border-radius: 5px;
     border: 1px dashed #D4D4D4;
+    margin-bottom: 27px;
 }
 
 .textW {
@@ -69,10 +70,16 @@ header {
     align-items: center;
     justify-content: center;
     border-radius: 50px;
+    cursor: pointer;
+}
+
+.your-quizzes {
+    margin-top: 70px;
+    width: 1051px;
 }
 
 .all-quizzes {
-    margin-top: 77px;
+    margin-top: 50px;
     width: 1051px;
 }
 
@@ -86,8 +93,13 @@ header {
 .quizz-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 1051px;
+    width: 1066px;
+}
+
+.quizz-list-api {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1066px;
 }
 
 .img-quizz {
@@ -95,6 +107,7 @@ header {
     height: 181px;
     margin-bottom: 12px;
     border-radius: 5px;
+    margin-right: 15px;
 }
 
 .title-quizz {
@@ -109,6 +122,26 @@ header {
     margin-top: 120px;
     display: flex;
     align-items: center;
+}
+
+.containertitle {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.firstionicon {
+    color: #EC362D;
+    font-size: 31px;
+    cursor: pointer;
+    margin-left: 139px;
+    margin-bottom: 10px;
+    position: absolute;
+}
+
+.none {
+    display: none;
 }
 
 /* primeira pagina  - fim*/
@@ -270,11 +303,13 @@ header {
     pointer-events: none;
 }
 
-.wrong.not-selected span, .wrong.selected span {
+.wrong.not-selected span,
+.wrong.selected span {
     color: #ff4b4b
 }
 
-.right.selected span, .right.not-selected span {
+.right.selected span,
+.right.not-selected span {
     color: #009c22;
 }
 
@@ -309,6 +344,13 @@ header {
         align-items: center;
     }
 
+    .quizz-list-api {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
     .img-quizz {
         margin-right: 18px;
     }
@@ -331,7 +373,7 @@ header {
         height: 390px;
         margin-top: 26px;
     }
-    
+
     .question-container h2 {
         width: 92%;
         height: 89px;
