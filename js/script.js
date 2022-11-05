@@ -17,7 +17,7 @@ function deucerto(answer) {
         quizz = answer.data[i];
 
         listaquizzes.innerHTML +=
-            `<li class="img-quizz" onclick="saveId(${quizz.id})" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
+            `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
                 url(${quizz.image});
                 background-size: 100%;">
                  <h2 class="title-quizz">${quizz.title}</h2>
@@ -25,14 +25,15 @@ function deucerto(answer) {
     }
 }
 
-function saveId(salv) {
-
+function getQuizId(e) {
+    console.log(e)
+    endID = e;
 }
-
 
 // Global Variables
 let contadorScroll = 1;
 let quizData;
+let endID;
 
 //Funções comportamento de respostas - Início
 function chooseAnswer() {
@@ -64,7 +65,7 @@ function scrollarProxima() {
         contadorScroll++
     }
     else {
-        endQuiz()
+        endQuiz();
         endScreen.classList.remove("hidden");
         endScreen.scrollIntoView({ block: "center", behavior: "smooth" });
         contadorScroll = 1;
@@ -72,38 +73,9 @@ function scrollarProxima() {
 }
 //Funções comportamento de respostas - Fim
 
-function endQuiz() {
-    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/2");
-    promessa.then(function (target) {
-
-        let arrayData = target.data;
-        const endScreen = document.querySelector(".final-screen-container")
-        const rightSelected = document.querySelectorAll(".right.selected");
-        const rightOption = document.querySelectorAll(".right");
-
-        let rightPerc = ((rightSelected.length / rightOption.length) * 100).toFixed(0);
-
-        for (let z = 0; z < arrayData.levels.length; z++) {
-            if (arrayData.levels[z].minValue > rightPerc) {
-                console.log(rightPerc);
-            }
-            else {
-                const endMessage = `<h2>${rightPerc}% de acerto: ${arrayData.levels[z].title}</h2>
-                    <div>
-                        <img src="${arrayData.levels[z].image}" alt="">
-                        <p>${arrayData.levels[z].text}</p>
-                    </div>`
-
-                endScreen.innerHTML = endMessage;
-            }
-        }
-    })
-}
-//Funções comportamento de respostas - Fim
-
 //Funções para gerar o quiz e terminar Quiz - Início
-function callQuiz() {
-    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/2");
+function callQuiz(thisID) {
+    const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${thisID}`);
     promessa.then(function (target) {
         const home = document.querySelector(".containerPg1");
         const quizOverlay = document.querySelector(".quiz-overlay")
@@ -113,6 +85,7 @@ function callQuiz() {
 
         home.classList.add("hidden")
         quizOverlay.classList.remove("hidden")
+        selectedQuiz.scrollIntoView()
 
         selectedQuiz.innerHTML = `<section style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${quizData.image}) center" class="selected-quiz">
         <span>${quizData.title}</span>
@@ -155,7 +128,7 @@ function callQuiz() {
 }
 
 function endQuiz() {
-    const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/2");
+    const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${endID}`);
     promessa.then(function (target) {
 
         let arrayData = target.data;
@@ -209,6 +182,7 @@ function returnHome() {
     quizOverlay.innerHTML = resetQuiz;
     quizOverlay.classList.add("hidden")
     home.classList.remove("hidden")
+    home.scrollIntoView({ block: "start"});
 
 }
 //Funções para reiniciar Quiz e voltar para HomePage - Fim
