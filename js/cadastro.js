@@ -638,9 +638,16 @@ function enviaQuizzApi(quizz) {
 }
 
 function enviaQuizzSucesso(resposta) {
-    let listaSerializados = JSON.stringify(resposta.data);
+    let listaString = localStorage.getItem(`listaUsuario`);
+    let listaConverter = JSON.parse(listaString);
 
-    localStorage.setItem(`${resposta.data.id}`, listaSerializados);
+    let listaLocalStorage = listaConverter;
+
+    listaLocalStorage.push(resposta.data.id);
+
+    let lista = JSON.stringify(listaLocalStorage);
+
+    localStorage.setItem(`listaUsuario`, lista);
 
     mostraTelaSucessoCriacaoBuzzQuizz(resposta.data);
 }
