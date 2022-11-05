@@ -1,34 +1,40 @@
+//requisação dos quizzes na api
+let listLocalStorage = [];
 
-//requisação dos quizzes na api 
 function DisplayQuizzes() {
-
-    let quizzes = axios.get('https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/');
+    let quizzes = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/");
     quizzes.then(deucerto);
 }
 DisplayQuizzes();
 
 //exibição de todos quizze na pag
 function deucerto(answer) {
-
     let listaquizzes = document.querySelector(".quizz-list-api");
     let quizz = "";
 
     for (let i = 0; i < answer.data.length; i++) {
         quizz = answer.data[i];
 
-        listaquizzes.innerHTML +=
-            `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
+        listaquizzes.innerHTML += `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
                 url(${quizz.image});
                 background-size: 100%;">
                  <h2 class="title-quizz">${quizz.title}</h2>
-            </li>`
+            </li>`;
+    }
+
+    let objetoStorage = JSON.parse(localStorage.getItem("listaUsuario"));
+
+    for (let i = 0; i < objetoStorage.length; i++) {
+        console.log(objetoStorage[i]);
     }
 }
 
 function getQuizId(e) {
-    console.log(e)
+    console.log(e);
     endID = e;
 }
+
+//Quizzes no localStorage
 
 // Global Variables
 let contadorScroll = 1;
@@ -40,18 +46,17 @@ function chooseAnswer() {
     const respostas = document.querySelectorAll(".option");
     respostas.forEach((resposta) => {
         resposta.addEventListener("click", function () {
-            const parent = resposta.closest(".question-container")
+            const parent = resposta.closest(".question-container");
             const userSelection = parent.querySelectorAll(".option");
             console.log("clique registrado");
-            userSelection.forEach(element => {
+            userSelection.forEach((element) => {
                 if (element !== resposta) {
                     element.classList.add("not-selected");
-                }
-                else {
-                    element.classList.add("selected")
+                } else {
+                    element.classList.add("selected");
                 }
             });
-            setTimeout(scrollarProxima, 2000)
+            setTimeout(scrollarProxima, 2000);
         });
     });
 }
@@ -62,9 +67,8 @@ function scrollarProxima() {
 
     if (contadorScroll < autoScroll.length) {
         autoScroll[contadorScroll].scrollIntoView({ block: "center", behavior: "smooth" });
-        contadorScroll++
-    }
-    else {
+        contadorScroll++;
+    } else {
         endQuiz();
         endScreen.classList.remove("hidden");
         endScreen.scrollIntoView({ block: "center", behavior: "smooth" });
@@ -78,61 +82,55 @@ function callQuiz(thisID) {
     const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${thisID}`);
     promessa.then(function (target) {
         const home = document.querySelector(".containerPg1");
-        const quizOverlay = document.querySelector(".quiz-overlay")
+        const quizOverlay = document.querySelector(".quiz-overlay");
         const selectedQuiz = document.querySelector(".selected-quiz");
-        const mainContainer = document.querySelector(".main-container")
+        const mainContainer = document.querySelector(".main-container");
         quizData = target.data;
 
-        home.classList.add("hidden")
-        quizOverlay.classList.remove("hidden")
-        selectedQuiz.scrollIntoView()
+        home.classList.add("hidden");
+        quizOverlay.classList.remove("hidden");
+        selectedQuiz.scrollIntoView();
 
         selectedQuiz.innerHTML = `<section style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${quizData.image}) center" class="selected-quiz">
         <span>${quizData.title}</span>
-        </section>`
-
+        </section>`;
 
         for (let i = 0; i < quizData.questions.length; i++) {
-
             const questionTitle = `<section class="question-container">
                 <h2 style="background-color:${quizData.questions[i].color}">${quizData.questions[i].title}</h2>
                 <ul></ul>
-                </section>`
+                </section>`;
             mainContainer.innerHTML += questionTitle;
             let answersArray = quizData.questions[i].answers;
-            const shuffledAnswers = answersArray.sort(() => Math.random() - 0.5)
+            const shuffledAnswers = answersArray.sort(() => Math.random() - 0.5);
 
             for (let x = 0; x < quizData.questions[i].answers.length; x++) {
                 const uList = document.querySelector(".question-container:last-child ul");
 
                 if (shuffledAnswers[x].isCorrectAnswer === true) {
-
                     const answerOption = `<li class="option right">
                             <img src="${shuffledAnswers[x].image}" alt="">
                             <span>${shuffledAnswers[x].text}</span>
-                            </li>`
+                            </li>`;
                     uList.innerHTML += answerOption;
-                }
-                else {
-
+                } else {
                     const answerOption = `<li class="option wrong">
                             <img src="${shuffledAnswers[x].image}" alt="">
                             <span>${shuffledAnswers[x].text}</span>
-                            </li>`
+                            </li>`;
                     uList.innerHTML += answerOption;
                 }
             }
         }
-        chooseAnswer()
-    })
+        chooseAnswer();
+    });
 }
 
 function endQuiz() {
     const promessa = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${endID}`);
     promessa.then(function (target) {
-
         let arrayData = target.data;
-        const endScreen = document.querySelector(".final-screen-container")
+        const endScreen = document.querySelector(".final-screen-container");
         const rightSelected = document.querySelectorAll(".right.selected");
         const rightOption = document.querySelectorAll(".right");
 
@@ -141,26 +139,24 @@ function endQuiz() {
         for (let z = 0; z < arrayData.levels.length; z++) {
             if (arrayData.levels[z].minValue > rightPerc) {
                 console.log(rightPerc);
-            }
-            else {
+            } else {
                 const endMessage = `<h2>${rightPerc}% de acerto: ${arrayData.levels[z].title}</h2>
                     <div>
                         <img src="${arrayData.levels[z].image}" alt="">
                         <p>${arrayData.levels[z].text}</p>
-                    </div>`
+                    </div>`;
 
                 endScreen.innerHTML = endMessage;
             }
         }
-    })
+    });
 }
 //Funções para gerar e terminar Quiz - Fim
-
 
 //Funções para reiniciar Quiz e voltar para HomePage - Início
 function returnHome() {
     const quizOverlay = document.querySelector(".quiz-overlay");
-    const home = document.querySelector(".containerPg1")
+    const home = document.querySelector(".containerPg1");
     const resetQuiz = `
         <section class="selected-quiz">
 
@@ -178,12 +174,10 @@ function returnHome() {
             <button class="redo-quiz">Reiniciar Quizz</button>
             <button onclick="returnHome()" class="return-btn">Voltar para Home</button>
         </footer>
-        `
+        `;
     quizOverlay.innerHTML = resetQuiz;
-    quizOverlay.classList.add("hidden")
-    home.classList.remove("hidden")
-    home.scrollIntoView({ block: "start"});
-
+    quizOverlay.classList.add("hidden");
+    home.classList.remove("hidden");
+    home.scrollIntoView({ block: "start" });
 }
 //Funções para reiniciar Quiz e voltar para HomePage - Fim
-
