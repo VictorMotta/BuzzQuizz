@@ -108,6 +108,7 @@ header {
     margin-bottom: 12px;
     border-radius: 5px;
     margin-right: 15px;
+    cursor: pointer;
 }
 
 .title-quizz {
@@ -214,7 +215,7 @@ header {
 }
 
 .question-container img {
-    height: 175px; 
+    height: 175px;
 }
 
 .question-container span {

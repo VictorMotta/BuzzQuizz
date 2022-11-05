@@ -7,6 +7,7 @@ function DisplayQuizzes() {
 }
 DisplayQuizzes();
 
+//exibição de todos quizze na pag
 function deucerto(answer) {
 
     let listaquizzes = document.querySelector(".quizz-list-api");
@@ -16,12 +17,16 @@ function deucerto(answer) {
         quizz = answer.data[i];
 
         listaquizzes.innerHTML +=
-            `<li class="img-quizz" style="  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
+            `<li class="img-quizz" onclick="saveId(${quizz.id})" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
                 url(${quizz.image});
                 background-size: 100%;">
                  <h2 class="title-quizz">${quizz.title}</h2>
             </li>`
     }
+}
+
+function saveId(salv) {
+
 }
 
 
@@ -71,7 +76,7 @@ function endQuiz() {
     const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/2");
     promessa.then(function (target) {
 
-        let arrayData = target.data;        
+        let arrayData = target.data;
         const endScreen = document.querySelector(".final-screen-container")
         const rightSelected = document.querySelectorAll(".right.selected");
         const rightOption = document.querySelectorAll(".right");
@@ -79,7 +84,7 @@ function endQuiz() {
         let rightPerc = ((rightSelected.length / rightOption.length) * 100).toFixed(0);
 
         for (let z = 0; z < arrayData.levels.length; z++) {
-            if(arrayData.levels[z].minValue > rightPerc) {
+            if (arrayData.levels[z].minValue > rightPerc) {
                 console.log(rightPerc);
             }
             else {
@@ -89,7 +94,7 @@ function endQuiz() {
                         <p>${arrayData.levels[z].text}</p>
                     </div>`
 
-                    endScreen.innerHTML = endMessage;
+                endScreen.innerHTML = endMessage;
             }
         }
     })
@@ -140,7 +145,7 @@ function callQuiz() {
                 }
             }
         }
-        chooseAnswer()        
+        chooseAnswer()
     })
 }
 
@@ -148,7 +153,7 @@ function endQuiz() {
     const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/2");
     promessa.then(function (target) {
 
-        let arrayData = target.data;        
+        let arrayData = target.data;
         const endScreen = document.querySelector(".final-screen-container")
         const rightSelected = document.querySelectorAll(".right.selected");
         const rightOption = document.querySelectorAll(".right");
@@ -156,7 +161,7 @@ function endQuiz() {
         let rightPerc = ((rightSelected.length / rightOption.length) * 100).toFixed(0);
 
         for (let z = 0; z < arrayData.levels.length; z++) {
-            if(arrayData.levels[z].minValue > rightPerc) {
+            if (arrayData.levels[z].minValue > rightPerc) {
                 console.log(rightPerc);
             }
             else {
@@ -166,7 +171,7 @@ function endQuiz() {
                         <p>${arrayData.levels[z].text}</p>
                     </div>`
 
-                    endScreen.innerHTML = endMessage;
+                endScreen.innerHTML = endMessage;
             }
         }
     })
