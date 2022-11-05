@@ -1,9 +1,86 @@
 let tituloCriadoQuizz, urlCriadoQuizz, qtdPerguntasCriadasTotais, qtdNiveisCriadosTotais;
 let questions = [],
     levels = [];
-
+let testeComparaPorcentagem = [];
 let verifica = true;
 let verificacaoAcertoMinimo = [];
+let porcentagemMinimaBuzz;
+
+// Inicio Primeira Tela 3.1
+
+function testaInputsCriaInfoBuzz() {
+    const inputTituloQuizzInfoBasic = document.querySelector("#titulo-info-basic");
+    const inputUrlQuizzInfoBasic = document.querySelector("#url-info-basic");
+    const qtdPerguntasQuizzInfoBasic = document.querySelector("#qtd-perguntas-info-basic");
+    const qtdPerguntasNumber = parseInt(qtdPerguntasQuizzInfoBasic.value);
+    const qtdNiveisQuizzInfoBasic = document.querySelector("#qtd-niveis-info-basic");
+    const qtdNiveisNumber = parseInt(qtdNiveisQuizzInfoBasic.value);
+
+    // Condição Titulo do Quizz
+
+    if (
+        inputTituloQuizzInfoBasic.value.length > inputTituloQuizzInfoBasic.minLength &&
+        inputTituloQuizzInfoBasic.value.length < inputTituloQuizzInfoBasic.maxLength
+    ) {
+        tituloCriadoQuizz = inputTituloQuizzInfoBasic.value;
+        inputTituloQuizzInfoBasic.style.border = "1px solid #d1d1d1";
+    } else {
+        inputTituloQuizzInfoBasic.style.border = "1px solid red";
+        verifica = false;
+    }
+
+    // Condição Imagem do Quizz
+
+    if (inputUrlQuizzInfoBasic.value === "") {
+        inputUrlQuizzInfoBasic.style.border = "1px solid red";
+        verifica = false;
+    } else {
+        try {
+            let url = new URL(inputUrlQuizzInfoBasic.value);
+            console.log("Valid URL!");
+            urlCriadoQuizz = inputUrlQuizzInfoBasic.value;
+        } catch (err) {
+            console.log("Invalid URL!");
+            alert("Tente digite com http:// no início");
+            inputUrlQuizzInfoBasic.style.border = "1px solid red";
+            verifica = false;
+        }
+    }
+
+    // Condição de qtdPerguntas
+
+    if (typeof qtdPerguntasNumber != "number") {
+        alert("Apenas digite números no campo de quantidades das perguntas!");
+        qtdPerguntasQuizzInfoBasic.style.border = "1px solid red";
+        verifica = false;
+    } else {
+        if (qtdPerguntasNumber >= 3) {
+            qtdPerguntasCriadasTotais = qtdPerguntasNumber;
+            qtdPerguntasQuizzInfoBasic.style.border = "1px solid #d1d1d1";
+        } else {
+            qtdPerguntasQuizzInfoBasic.style.border = "1px solid red";
+            alert("Pode apenas mais de 3 perguntas!");
+            verifica = false;
+        }
+    }
+
+    // Condição de qtd Niveis
+
+    if (typeof qtdNiveisNumber != "number") {
+        alert("Apenas digite números no campo de quantidades dos níveis!");
+        qtdNiveisQuizzInfoBasic.style.border = "1px solid red";
+        verifica = false;
+    } else {
+        if (qtdNiveisNumber >= 2) {
+            qtdNiveisCriadosTotais = qtdNiveisNumber;
+            qtdNiveisQuizzInfoBasic.style.border = "1px solid #d1d1d1";
+        } else {
+            qtdNiveisQuizzInfoBasic.style.border = "1px solid red";
+            alert("Pode apenas mais de 2 níveis!");
+            verifica = false;
+        }
+    }
+}
 
 function prosseguirCriarPergunta() {
     verifica = true;
@@ -24,87 +101,7 @@ function prosseguirCriarPergunta() {
         alert("Corrija os campos em vermelho!");
     }
 }
-// Inicio Primeira Tela 3.1
-// Essa função verifica se o link é de uma imagem mesmo
 
-function testaInputsCriaInfoBuzz() {
-    const inputTituloQuizzInfoBasic = document.querySelector("#titulo-info-basic");
-    const inputUrlQuizzInfoBasic = document.querySelector("#url-info-basic");
-    const qtdPerguntasQuizzInfoBasic = document.querySelector("#qtd-perguntas-info-basic");
-    const qtdPerguntasNumber = parseInt(qtdPerguntasQuizzInfoBasic.value);
-    const qtdNiveisQuizzInfoBasic = document.querySelector("#qtd-niveis-info-basic");
-    const qtdNiveisNumber = parseInt(qtdNiveisQuizzInfoBasic.value);
-
-    // Condição Titulo do Quizz
-
-    if (
-        inputTituloQuizzInfoBasic.value.length > inputTituloQuizzInfoBasic.minLength &&
-        inputTituloQuizzInfoBasic.value.length < inputTituloQuizzInfoBasic.maxLength
-    ) {
-        tituloCriadoQuizz = inputTituloQuizzInfoBasic.value;
-        inputTituloQuizzInfoBasic.style.border = "1px solid #d1d1d1";
-    } else {
-        if (inputTituloQuizzInfoBasic.value.length < inputTituloQuizzInfoBasic.minLength) {
-            alert("Digite mais de 20 caracteres no Título!");
-        }
-        inputTituloQuizzInfoBasic.style.border = "1px solid red";
-        verifica = false;
-    }
-
-    // Condição Imagem do Quizz
-
-    if (inputUrlQuizzInfoBasic.value === "") {
-        inputUrlQuizzInfoBasic.style.border = "1px solid #d1d1d1";
-        alert("Digite alguma coisa no url!");
-        inputUrlQuizzInfoBasic.style.border = "1px solid red";
-        verifica = false;
-    } else {
-        try {
-            let url = new URL(inputUrlQuizzInfoBasic.value);
-            console.log("Valid URL!");
-            urlCriadoQuizz = inputUrlQuizzInfoBasic.value;
-        } catch (err) {
-            console.log("Invalid URL!");
-            alert("Tente digite com http:// no início");
-            inputUrlQuizzInfoBasic.style.border = "1px solid red";
-            verifica = false;
-        }
-    }
-
-    // Condição de qtdPerguntas
-
-    if (!Number.isInteger(qtdPerguntasNumber)) {
-        alert("Apenas digite números no campo de quantidades das perguntas!");
-        qtdPerguntasQuizzInfoBasic.style.border = "1px solid red";
-        verifica = false;
-    } else {
-        if (qtdPerguntasNumber >= 3) {
-            qtdPerguntasCriadasTotais = qtdPerguntasNumber;
-            qtdPerguntasQuizzInfoBasic.style.border = "1px solid #d1d1d1";
-        } else {
-            qtdPerguntasQuizzInfoBasic.style.border = "1px solid red";
-            alert("Pode apenas mais de 3 perguntas!");
-            verifica = false;
-        }
-    }
-
-    // Condição de qtd Niveis
-
-    if (!Number.isInteger(qtdNiveisNumber)) {
-        alert("Apenas digite números no campo de quantidades dos níveis!");
-        qtdNiveisQuizzInfoBasic.style.border = "1px solid red";
-        verifica = false;
-    } else {
-        if (qtdNiveisNumber >= 2) {
-            qtdNiveisCriadosTotais = qtdNiveisNumber;
-            qtdNiveisQuizzInfoBasic.style.border = "1px solid #d1d1d1";
-        } else {
-            qtdNiveisQuizzInfoBasic.style.border = "1px solid red";
-            alert("Pode apenas mais de 2 níveis!");
-            verifica = false;
-        }
-    }
-}
 // Fim Primeira Tela 3.1
 // Inicio segunda Tela 3.2
 
@@ -191,42 +188,7 @@ function adicionaQtdPerguntas() {
     `;
     }
 }
-
-// Algo apenas visual
-function abrirPergunta(elemento) {
-    const containerCriaPergunta = elemento.parentNode.parentNode;
-    const tiraHidden = containerCriaPergunta.querySelector(".container-mostra-cria-perguntas");
-
-    tiraHidden.classList.toggle("hidden");
-}
-
-// Função para enviar e prosseguir com as peguntas
-
-function prosseguirCriaNiveis(elemento) {
-    verifica = true;
-    questions = [];
-    const allContainerCriaPergunta = document.querySelectorAll(".container-cria-pergunta");
-    const containerHiddenCriaPerguntas = elemento.parentNode.parentNode;
-    const containerHiddenCriaNiveis = document.querySelector(
-        ".container-hidden-escolhe-nivel-quizz"
-    );
-
-    for (let i = 0; i < allContainerCriaPergunta.length; i++) {
-        let objectProsseguir = testaInputsCriaPerguntasBuzz(allContainerCriaPergunta[i]);
-        questions.push(objectProsseguir);
-    }
-    console.log(questions);
-
-    if (verifica) {
-        containerHiddenCriaPerguntas.classList.add("hidden");
-        containerHiddenCriaNiveis.classList.remove("hidden");
-    } else {
-        alert("Conserte as áreas em vermelho! ");
-    }
-}
-
 // função testando perguntas funcionais
-
 function testaInputsCriaPerguntasBuzz(elemento) {
     let verificaRespImgIncorreta3 = false,
         verificaRespImgIncorreta2 = false;
@@ -243,7 +205,6 @@ function testaInputsCriaPerguntasBuzz(elemento) {
 
     // Verificando Título
     if (perguntaInput.value.length < perguntaInput.minLength) {
-        alert(`A ${qualPergunta} deve ter mais de 20 caracteres! Corrija-a! `);
         perguntaInput.style.border = "1px solid red";
         verifica = false;
     } else {
@@ -254,14 +215,11 @@ function testaInputsCriaPerguntasBuzz(elemento) {
     // Verifica cor de fundo
     if (corPergunta.value.length != 7) {
         corPergunta.style.border = "1px solid red";
-        alert(`Coloque apenas um total de 7 caracteres! Corrija a ${qualPergunta}`);
         verifica = false;
     } else {
         if (!hexadecimal.test(corPergunta.value)) {
             corPergunta.style.border = "1px solid red";
-            alert(
-                `Tente colocar apenas cores hexadecimais com total de 7 caracteres e com # no início! Corrija a ${qualPergunta}`
-            );
+
             verifica = false;
         } else {
             corPergunta.style.border = "1px solid #d1d1d1";
@@ -273,9 +231,7 @@ function testaInputsCriaPerguntasBuzz(elemento) {
 
     if (respostaCorretaInput.value === "" || respostaCorretaInput.value === " ") {
         respostaCorretaInput.style.border = "1px solid red";
-        alert(
-            `Digite alguma coisa! Não pode ser vazio o campo de resposta correta! Corrija na ${qualPergunta}`
-        );
+
         verifica = false;
     } else {
         respostaCorretaInput.style.border = "1px solid #d1d1d1";
@@ -285,9 +241,6 @@ function testaInputsCriaPerguntasBuzz(elemento) {
     // Verifica imagem da resposta correta
 
     if (imagemRespostaCorretaInput.value === "") {
-        alert(
-            `Digite uma URL válida de uma imagem! Não deixe em branco! Corrija o espaço em branco da ${qualPergunta}`
-        );
         imagemRespostaCorretaInput.style.border = "1px solid red";
         verifica = false;
     } else {
@@ -310,7 +263,7 @@ function testaInputsCriaPerguntasBuzz(elemento) {
         respostasIncorretaInputsList[0].value === " "
     ) {
         respostasIncorretaInputsList[0].style.border = "1px solid red";
-        alert(`Obrigatório: Colocar a resposta incorreta 1! Corrija na ${qualPergunta}!`);
+
         verifica = false;
     } else {
         respostasIncorretaInputsList[0].style.border = "1px solid #d1d1d1";
@@ -323,9 +276,6 @@ function testaInputsCriaPerguntasBuzz(elemento) {
         imagemRespostasIncorretaInputsList[0].value === "" ||
         imagemRespostasIncorretaInputsList[0].value === " "
     ) {
-        alert(
-            `Digite uma URL válida de uma imagem! Não deixe em branco! Corrija o espaço em branco da ${qualPergunta}`
-        );
         imagemRespostasIncorretaInputsList[0].style.border = "1px solid red";
         verifica = false;
     } else {
@@ -352,20 +302,17 @@ function testaInputsCriaPerguntasBuzz(elemento) {
                 verificaRespImgIncorreta2 = true;
             } catch (err) {
                 console.log("Invalid URL!");
-                alert(
-                    "Tente digite com http:// no início na reposta incorreta 2! na " + qualPergunta
-                );
+
                 imagemRespostasIncorretaInputsList[1].style.border = "1px solid red";
                 verifica = false;
             }
         } else {
-            alert("Impossivel enviar sem imagem na resposta incorreta! na " + qualPergunta);
             imagemRespostasIncorretaInputsList[1].style.border = "1px solid red";
             verifica = false;
         }
     } else if (imagemRespostasIncorretaInputsList[1].value != "") {
         respostasIncorretaInputsList[1].style.border = "1px solid red";
-        alert("Impossível enviar sem Digitar a resposta incorreta 2! na " + qualPergunta);
+
         verifica = false;
     }
 
@@ -388,12 +335,12 @@ function testaInputsCriaPerguntasBuzz(elemento) {
             }
         } else {
             imagemRespostasIncorretaInputsList[2].style.border = "1px solid red";
-            alert("Impossivel enviar sem a imagem a reposta incorreta 3! na " + qualPergunta);
+
             verifica = false;
         }
     } else if (imagemRespostasIncorretaInputsList[2].value != "") {
         respostasIncorretaInputsList[2].style.border = "1px solid red";
-        alert("Impossível enviar sem Digitar a resposta incorreta 3! na " + qualPergunta);
+
         verifica = false;
     }
 
@@ -469,7 +416,41 @@ function testaInputsCriaPerguntasBuzz(elemento) {
     }
 }
 
+// Algo apenas visual
+function abrirPergunta(elemento) {
+    const containerCriaPergunta = elemento.parentNode.parentNode;
+    const tiraHidden = containerCriaPergunta.querySelector(".container-mostra-cria-perguntas");
+
+    tiraHidden.classList.toggle("hidden");
+}
+
+// Função para enviar e prosseguir com as peguntas
+
+function prosseguirCriaNiveis(elemento) {
+    verifica = true;
+    questions = [];
+    const allContainerCriaPergunta = document.querySelectorAll(".container-cria-pergunta");
+    const containerHiddenCriaPerguntas = elemento.parentNode.parentNode;
+    const containerHiddenCriaNiveis = document.querySelector(
+        ".container-hidden-escolhe-nivel-quizz"
+    );
+
+    for (let i = 0; i < allContainerCriaPergunta.length; i++) {
+        let objectProsseguir = testaInputsCriaPerguntasBuzz(allContainerCriaPergunta[i]);
+        questions.push(objectProsseguir);
+    }
+    console.log(questions);
+
+    if (verifica) {
+        containerHiddenCriaPerguntas.classList.add("hidden");
+        containerHiddenCriaNiveis.classList.remove("hidden");
+    } else {
+        alert("Conserte as áreas em vermelho! ");
+    }
+}
+
 // Fim segunda Tela 3.2
+
 // Inicio terceira Tela 3.3
 
 function adicionaQtdNiveis() {
@@ -507,6 +488,89 @@ function adicionaQtdNiveis() {
     }
 }
 
+function testaInputsCriaNiveis(elemento) {
+    const inputTituloCriaNivel = elemento.querySelector(".titulo-cria-nivel");
+    const inputPorcentagemMinimaNivel = elemento.querySelector(".acerto-minimo-cria-nivel");
+    const numeroPorcentagemMinimaNivel = Number(inputPorcentagemMinimaNivel.value);
+    const inputUrlImagemCriaNivel = elemento.querySelector(".url-imagem-cria-nivel");
+    const inputDescricaoCriaNivel = elemento.querySelector(".descricao-cria-nivel");
+
+    // Verifica o tamanho do que foi digitado no titulo
+
+    if (inputTituloCriaNivel.value.length > inputTituloCriaNivel.minLength) {
+        inputTituloCriaNivel.style.border = "1px solid #d1d1d1";
+        console.log(`Titulo nível foi digitado corretamente!`);
+    } else {
+        inputTituloCriaNivel.style.border = "1px solid red";
+        verifica = false;
+    }
+
+    // Verifica a porcentagem minima de acerto
+
+    if (inputPorcentagemMinimaNivel.value.length <= inputPorcentagemMinimaNivel.maxLength) {
+        if (
+            typeof numeroPorcentagemMinimaNivel === "number" &&
+            numeroPorcentagemMinimaNivel >= 0 &&
+            numeroPorcentagemMinimaNivel <= 100
+        ) {
+            inputPorcentagemMinimaNivel.style.border = "1px solid #d1d1d1";
+            if (numeroPorcentagemMinimaNivel < porcentagemMinimaBuzz) {
+                porcentagemMinimaBuzz = numeroPorcentagemMinimaNivel;
+            }
+            verificacaoAcertoMinimo.push(inputPorcentagemMinimaNivel);
+        } else {
+            inputPorcentagemMinimaNivel.style.border = "1px solid red";
+            verifica = false;
+        }
+    } else {
+        inputPorcentagemMinimaNivel.style.border = "1px solid red";
+        verifica = false;
+    }
+
+    // Verifica a URL da imagem Nivel
+
+    if (inputUrlImagemCriaNivel != "") {
+        try {
+            let url = new URL(inputUrlImagemCriaNivel.value);
+            console.log("Valid URL!");
+            inputUrlImagemCriaNivel.style.border = "1px solid #d1d1d1";
+        } catch (err) {
+            console.log("Invalid URL!");
+            inputUrlImagemCriaNivel.style.border = "1px solid red";
+            verifica = false;
+        }
+    } else {
+        inputUrlImagemCriaNivel.style.border = "1px solid red";
+        verifica = false;
+    }
+
+    // Verifica caracteres descrição nível
+
+    if (inputDescricaoCriaNivel.value != "") {
+        if (inputDescricaoCriaNivel.value.length >= inputDescricaoCriaNivel.minLength) {
+            console.log("Descrição passou!");
+            inputDescricaoCriaNivel.style.border = "1px solid #d1d1d1";
+        } else {
+            inputDescricaoCriaNivel.style.border = "1px solid red";
+            verifica = false;
+        }
+    } else {
+        inputDescricaoCriaNivel.style.border = "1px solid red";
+        verifica = false;
+    }
+
+    // Verifica se está tudo ok e retorna o objeto;
+
+    if (verifica) {
+        return {
+            title: inputTituloCriaNivel.value,
+            image: inputUrlImagemCriaNivel.value,
+            text: inputDescricaoCriaNivel.value,
+            minValue: numeroPorcentagemMinimaNivel,
+        };
+    }
+}
+
 // algo apenas visual
 function abrirNivel(elemento) {
     const containerCriaNivel = elemento.parentNode.parentNode;
@@ -517,51 +581,60 @@ function abrirNivel(elemento) {
 
 function prosseguirCriaSucessoBuzzQuizz(elemento) {
     verificacaoAcertoMinimo = [];
+    porcentagemMinimaBuzz = 100;
     verifica = true;
     levels = [];
+    const inputPorcentagemMinimaNivel = document.querySelector(".acerto-minimo-cria-nivel");
     const allContainerCriaNiveis = document.querySelectorAll(".container-cria-nivel");
 
     for (let i = 0; i < allContainerCriaNiveis.length; i++) {
         let objectProsseguir = testaInputsCriaNiveis(allContainerCriaNiveis[i]);
         levels.push(objectProsseguir);
     }
+    console.log(levels);
 
-    if (verifica) {
-    }
-    console.log(questions);
-    console.log(verificacaoAcertoMinimo);
-}
-
-function testaInputsCriaNiveis(elemento) {
-    const verificaSeNumero = /[0-9]{3}$/i;
-
-    const qualNivel = elemento.querySelector(".menu-hidden-nivel h2").innerHTML;
-    const inputTituloCriaNivel = elemento.querySelector(".titulo-cria-nivel");
-    const inputPorcentagemMinimaNivel = elemento.querySelector(".acerto-minimo-cria-nivel");
-    const numeroPorcentagemMinimaNivel = Number(inputPorcentagemMinimaNivel.value);
-
-    // Verifica o tamanho do que foi digitado no titulo
-
-    if (inputTituloCriaNivel.value.length > inputTituloCriaNivel.minLength) {
-        inputTituloCriaNivel.style.border = "1px solid #d1d1d1";
-        console.log(`${qualNivel}: Titulo nível foi digitado corretamente!`);
-    } else {
-        inputTituloCriaNivel.style.border = "1px solid red";
-        alert(`Titulo nível não pode ter menos de 10 caracteres! Corrija o ${qualNivel}`);
+    if (porcentagemMinimaBuzz != 0) {
         verifica = false;
+        alert("Pelo menos um nivel tem que haver uma porcentagem mínima de 0% de acertos!");
+        inputPorcentagemMinimaNivel.style.border = "1px solid red";
     }
 
-    // Verifica a porcentagem minima de acerto
-
-    if (inputPorcentagemMinimaNivel.value.length <= inputPorcentagemMinimaNivel.maxLength) {
-        if (
-            verificaSeNumero.test(numeroPorcentagemMinimaNivel) &&
-            verificaSeNumero > 0 &&
-            verificaSeNumero < 100
-        ) {
-            verificacaoAcertoMinimo.push(numeroPorcentagemMinimaNivel);
-        } else {
-            alert("");
+    for (let i = 0; i < verificacaoAcertoMinimo.length; i++) {
+        for (let j = 0; j < verificacaoAcertoMinimo.length; j++) {
+            if (i != j) {
+                if (verificacaoAcertoMinimo[i].value === verificacaoAcertoMinimo[j].value) {
+                    verifica = false;
+                    verificacaoAcertoMinimo[i].style.border = "1px solid red";
+                    verificacaoAcertoMinimo[j].style.border = "1px solid red";
+                }
+            }
         }
     }
+
+    if (verifica) {
+        console.log("Tudo certo!");
+        let quizz = criaJsonQuizzBuzz();
+        enviaQuizzApi(quizz);
+    } else {
+        alert("Corrija todos os campos em vermelho!");
+    }
+}
+
+function criaJsonQuizzBuzz() {
+    return {
+        title: tituloCriadoQuizz,
+        image: urlCriadoQuizz,
+        questions: questions,
+        levels: levels,
+    };
+}
+
+function enviaQuizzApi(quizz) {
+    const promisse = axios.post("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes", quizz);
+
+    promisse.then(enviaQuizzSucesso);
+}
+
+function enviaQuizzSucesso(resposta) {
+    console.log(resposta.data);
 }

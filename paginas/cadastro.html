@@ -290,6 +290,80 @@
                         </div>
                     </div>
                     <!-- Fim div container-cria-nivel  -->
+                    <!-- Inicio div container-cria-nivel  -->
+                    <div class="container-cria-nivel">
+                        <div class="menu-hidden-nivel">
+                            <h2>Nível 2</h2>
+                            <img
+                                onclick="abrirNivel(this)"
+                                src="../img/button-mostra-cria-pergunta.svg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="container-mostra-cria-nivel hidden">
+                            <input
+                                minlength="10"
+                                class="titulo-cria-nivel"
+                                type="text"
+                                placeholder="Titulo do Nível"
+                            />
+                            <input
+                                maxlength="3"
+                                class="acerto-minimo-cria-nivel"
+                                type="text"
+                                placeholder="% de acerto mínima"
+                            />
+                            <input
+                                class="url-imagem-cria-nivel"
+                                type="text"
+                                placeholder="URL da imagem do nível"
+                            />
+                            <input
+                                minlength="30"
+                                class="descricao-cria-nivel"
+                                type="text"
+                                placeholder="Descrição do nível"
+                            />
+                        </div>
+                    </div>
+                    <!-- Fim div container-cria-nivel  -->
+                    <!-- Inicio div container-cria-nivel  -->
+                    <div class="container-cria-nivel">
+                        <div class="menu-hidden-nivel">
+                            <h2>Nível 2</h2>
+                            <img
+                                onclick="abrirNivel(this)"
+                                src="../img/button-mostra-cria-pergunta.svg"
+                                alt=""
+                            />
+                        </div>
+                        <div class="container-mostra-cria-nivel hidden">
+                            <input
+                                minlength="10"
+                                class="titulo-cria-nivel"
+                                type="text"
+                                placeholder="Titulo do Nível"
+                            />
+                            <input
+                                maxlength="3"
+                                class="acerto-minimo-cria-nivel"
+                                type="text"
+                                placeholder="% de acerto mínima"
+                            />
+                            <input
+                                class="url-imagem-cria-nivel"
+                                type="text"
+                                placeholder="URL da imagem do nível"
+                            />
+                            <input
+                                minlength="30"
+                                class="descricao-cria-nivel"
+                                type="text"
+                                placeholder="Descrição do nível"
+                            />
+                        </div>
+                    </div>
+                    <!-- Fim div container-cria-nivel  -->
                 </div>
                 <button onclick="prosseguirCriaSucessoBuzzQuizz(this)" class="finaliza-quizz">
                     Finalizar Quizz
@@ -311,6 +385,7 @@
             </div>
         </div>
         <!-- Fim div container-hidden-sucesso-criacao-quizz  -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script
             type="module"
             src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
