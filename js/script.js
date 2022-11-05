@@ -182,7 +182,7 @@ function returnHome() {
     quizOverlay.innerHTML = resetQuiz;
     quizOverlay.classList.add("hidden")
     home.classList.remove("hidden")
-    home.scrollIntoView({ block: "start"});
+    home.scrollIntoView({ block: "start" });
 
 }
 //Funções para reiniciar Quiz e voltar para HomePage - Fim
