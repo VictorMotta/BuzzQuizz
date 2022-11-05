@@ -100,10 +100,15 @@ function endQuiz() {
 function callQuiz() {
     const promessa = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/2");
     promessa.then(function (target) {
+        const home = document.querySelector(".containerPg1");
+        const quizOverlay = document.querySelector(".quiz-overlay")
         const selectedQuiz = document.querySelector(".selected-quiz");
         const mainContainer = document.querySelector(".main-container")
-        const finalScreen = document.querySelector(".final-screen-container");
         quizData = target.data;
+
+        home.classList.add("hidden")
+        quizOverlay.classList.remove("hidden")
+
         selectedQuiz.innerHTML = `<section style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${quizData.image}) center" class="selected-quiz">
         <span>${quizData.title}</span>
         </section>`
@@ -177,6 +182,7 @@ function endQuiz() {
 //Funções para reiniciar Quiz e voltar para HomePage - Início
 function returnHome() {
     const quizOverlay = document.querySelector(".quiz-overlay");
+    const home = document.querySelector(".containerPg1")
     const resetQuiz = `
         <section class="selected-quiz">
 
@@ -192,11 +198,13 @@ function returnHome() {
 
         <footer class="btn-container">
             <button class="redo-quiz">Reiniciar Quizz</button>
-            <button class="return-btn">Voltar para Home</button>
+            <button onclick="returnHome()" class="return-btn">Voltar para Home</button>
         </footer>
         `
     quizOverlay.innerHTML = resetQuiz;
     quizOverlay.classList.add("hidden")
+    home.classList.remove("hidden")
+
 }
 //Funções para reiniciar Quiz e voltar para HomePage - Fim
 
