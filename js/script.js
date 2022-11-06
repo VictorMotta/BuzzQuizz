@@ -127,15 +127,23 @@ function callQuiz(thisID) {
                 const uList = document.querySelector(".question-container:last-child ul");
 
                 if (shuffledAnswers[x].isCorrectAnswer === true) {
-                    const answerOption = `<li class="option right">
+                    const answerOption = `<li class="option right">   
+                            <div class="container-imagem-reposta">                       
                             <img src="${shuffledAnswers[x].image}" alt="">
+                            </div>
+                            <div class="container-titulo-resposta">
                             <span>${shuffledAnswers[x].text}</span>
+                            </div>
                             </li>`;
                     uList.innerHTML += answerOption;
                 } else {
                     const answerOption = `<li class="option wrong">
+                            <div class="container-imagem-resposta">
                             <img src="${shuffledAnswers[x].image}" alt="">
+                            </div>
+                            <div class="container-titulo-resposta">
                             <span>${shuffledAnswers[x].text}</span>
+                            </div>
                             </li>`;
                     uList.innerHTML += answerOption;
                 }
