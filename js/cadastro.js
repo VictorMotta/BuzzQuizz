@@ -641,7 +641,7 @@ function enviaQuizzApi(quizz) {
 function enviaQuizzSucesso(resposta) {
     idEnviaIndex = resposta.data.id;
     if (localStorage.getItem(`listaUsuario`) === null) {
-        let listaLocalStorage = [resposta.data.id];
+        let listaLocalStorage = [resposta.data];
 
         let lista = JSON.stringify(listaLocalStorage);
 
@@ -654,7 +654,7 @@ function enviaQuizzSucesso(resposta) {
 
         let listaLocalStorage = listaConverter;
 
-        listaLocalStorage.push(resposta.data.id);
+        listaLocalStorage.push(resposta.data);
         let lista = JSON.stringify(listaLocalStorage);
 
         localStorage.setItem(`listaUsuario`, lista);

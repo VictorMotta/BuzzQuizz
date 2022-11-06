@@ -9,35 +9,36 @@ DisplayQuizzes();
 
 //exibição de todos quizze na pag
 function deucerto(answer) {
+    console.log(answer.data);
     let listaquizzes = document.querySelector(".quizz-list-api");
-    let quizz = "";
+    let quizz = answer.data;
     let meusquizzes = document.querySelector(".quizz-list");
 
     let objetoStorage = JSON.parse(localStorage.getItem("listaUsuario"));
+    let listaIdStorage = [];
 
-    for (let i = 0; i < answer.data.length; i++) {
-        quizz = answer.data[i];
-        console.log(quizz.id);
+    if (objetoStorage != null) {
+        for (let i = 0; i < objetoStorage.length; i++) {
+            listaIdStorage.push(objetoStorage[i].id);
 
-        listaquizzes.innerHTML += `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
-                url(${quizz.image});
-                background-size: 100%;">
-                <h2 class="title-quizz">${quizz.title}</h2>
-            </li>`;
-
-        if (objetoStorage != null) {
-            for (let j = 0; j < objetoStorage.length; j++) {
-                if (objetoStorage[j] === quizz.id) {
-                    console.log(objetoStorage[j]);
-                    meusquizzes.innerHTML += `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
-                url(${quizz.image});
-                background-size: 100%;">
-                <h2 class="title-quizz">${quizz.title}</h2>
-            </li>`;
-                }
-            }
+            meusquizzes.innerHTML += `<li id="${objetoStorage[i].id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
+            url(${objetoStorage[i].image});
+            background-size: 100%;">
+            <h2 class="title-quizz">${objetoStorage[i].title}</h2>
+        </li>`;
         }
     }
+
+    for (let i = 0; i < quizz.length; i++) {
+        if (!RegExp(quizz[i].id).test(listaIdStorage)) {
+            listaquizzes.innerHTML += `<li id="${quizz[i].id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
+                url(${quizz[i].image});
+                background-size: 100%;">
+                <h2 class="title-quizz">${quizz[i].title}</h2>
+            </li>`;
+        }
+    }
+
     temQuizzes();
 }
 
@@ -243,6 +244,7 @@ function acessarQuizzCadastro() {
         return;
     } else {
         let idAcessarQuizz = JSON.parse(localStorage.getItem(`quizzAcessar`));
+        endID = idAcessarQuizz;
         callQuiz(idAcessarQuizz);
         localStorage.removeItem("quizzAcessar");
     }
