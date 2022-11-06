@@ -181,6 +181,29 @@ function endQuiz() {
 //Funções para gerar e terminar Quiz - Fim
 
 //Funções para reiniciar Quiz e voltar para HomePage - Início
+function resetQuiz() {
+    const quizOverlay = document.querySelector(".quiz-overlay");
+    const resetQuiz = `
+        <section class="selected-quiz">
+
+        </section>
+
+        <section class="main-container">
+    
+        </section>
+
+        <section class="final-screen-container hidden">
+        
+        </section>
+
+        <footer class="btn-container">
+            <button onclick="restartQuiz()" class="redo-quiz">Reiniciar Quizz</button>
+            <button onclick="returnHome()" class="return-btn">Voltar para Home</button>
+        </footer>
+        `;
+    quizOverlay.innerHTML = resetQuiz;
+}
+
 function returnHome() {
     const quizOverlay = document.querySelector(".quiz-overlay");
     const home = document.querySelector(".containerPg1");
@@ -198,7 +221,7 @@ function returnHome() {
         </section>
 
         <footer class="btn-container">
-            <button class="redo-quiz">Reiniciar Quizz</button>
+            <button onclick="restartQuiz()" class="redo-quiz">Reiniciar Quizz</button>
             <button onclick="returnHome()" class="return-btn">Voltar para Home</button>
         </footer>
         `;
@@ -206,6 +229,13 @@ function returnHome() {
     quizOverlay.classList.add("hidden");
     home.classList.remove("hidden");
     home.scrollIntoView({ block: "start" });
+    contadorScroll = 1;
+}
+
+function restartQuiz() {
+    resetQuiz();
+    callQuiz(endID);
+
 }
 //Funções para reiniciar Quiz e voltar para HomePage - Fim
 
