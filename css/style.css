@@ -344,6 +344,13 @@ header {
         width: 92%;
     }
 
+    .your-quizzes {
+        width: 92%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
     .all-quizzes {
         width: 92%;
         display: flex;

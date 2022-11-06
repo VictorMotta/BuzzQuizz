@@ -14,12 +14,11 @@ function deucerto(answer) {
     let meusquizzes = document.querySelector(".quizz-list");
 
     let objetoStorage = JSON.parse(localStorage.getItem("listaUsuario"));
-
-    for (let i = 0; i < objetoStorage.length; i++) {
-    }
+    console.log(objetoStorage);
 
     for (let i = 0; i < answer.data.length; i++) {
         quizz = answer.data[i];
+        console.log(quizz.id);
 
         listaquizzes.innerHTML +=
             `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
@@ -28,23 +27,38 @@ function deucerto(answer) {
                 <h2 class="title-quizz">${quizz.title}</h2>
             </li>`;
 
-        for (let j = 0; j < objetoStorage.length; j++) {
-            if (quizz.id === objetoStorage[j]) {
-                meusquizzes.innerHTML +=
-                    `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
-                        url(${quizz.image});
-                        background-size: 100%;">
-                        <h2 class="title-quizz">${quizz.title}</h2>
-                    </li>`;
+        if (objetoStorage != null) {
+            for (let j = 0; j < objetoStorage.length; j++) {
+                if (objetoStorage[j] === quizz.id) {
+                    console.log(objetoStorage[j])
+                    meusquizzes.innerHTML +=
+                        `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
+                url(${quizz.image});
+                background-size: 100%;">
+                <h2 class="title-quizz">${quizz.title}</h2>
+            </li>`;
+                }
             }
         }
     }
-
+    temQuizzes()
 }
+
 
 function getQuizId(e) {
     endID = e;
 }
+
+//DOM dos quizzes do usuario
+function temQuizzes() {
+    if (document.querySelector(".quizz-list").children[0] === undefined) {
+        document.querySelector(".your-quizzes").classList.add("none");
+    }
+    else {
+        document.querySelector(".your-quizz").classList.add("none");
+    }
+}
+
 
 // Global Variables
 let contadorScroll = 1;
