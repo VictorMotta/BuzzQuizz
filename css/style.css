@@ -1,12 +1,12 @@
 /* Google Fonts Import */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500&display=swap");
 
-body {
+* {
+    box-sizing: border-box;
     font-family: "Roboto", sans-serif;
 }
-
-a {
-    text-decoration: none;
+body {
+    font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -47,7 +47,7 @@ header {
     align-items: center;
     justify-content: center;
     border-radius: 5px;
-    border: 1px dashed #D4D4D4;
+    border: 1px dashed #d4d4d4;
     margin-bottom: 27px;
 }
 
@@ -56,7 +56,7 @@ header {
     font-weight: 400;
     line-height: 23px;
     text-align: center;
-    color: #B9B9B9;
+    color: #b9b9b9;
     width: 250px;
     height: 70px;
 }
@@ -68,8 +68,8 @@ header {
     font-weight: 400;
     line-height: 25px;
     text-align: center;
-    color: #EC362D;
-    border: 1px dashed #EC362D;
+    color: #ec362d;
+    border: 1px dashed #ec362d;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -96,12 +96,7 @@ header {
     line-height: 23px;
 }
 
-.quizz-list {
-    display: flex;
-    flex-wrap: wrap;
-    width: 1066px;
-}
-
+.quizz-list,
 .quizz-list-api {
     display: flex;
     flex-wrap: wrap;
@@ -118,31 +113,29 @@ header {
 }
 
 .title-quizz {
-    width: 300px;
-    height: 54px;
+    width: 100%;
     font-size: 19px;
     font-weight: 400;
     line-height: 22px;
     text-align: left;
     color: #ffffff;
-    margin-left: 18px;
+    padding: 0 18px;
+
     margin-top: 120px;
-    display: flex;
     align-items: center;
+    word-wrap: break-word;
 }
 
 .containertitle {
     display: flex;
     align-items: center;
     position: relative;
-
 }
 
 .firstionicon {
-    color: #EC362D;
+    color: #ec362d;
     font-size: 31px;
     cursor: pointer;
-
 }
 
 .linkionicon {
@@ -156,7 +149,6 @@ header {
 }
 
 /* primeira pagina  - fim*/
-
 
 .quiz-overlay {
     display: flex;
@@ -321,7 +313,7 @@ header {
 
 .wrong.not-selected span,
 .wrong.selected span {
-    color: #ff4b4b
+    color: #ff4b4b;
 }
 
 .right.selected span,
@@ -341,7 +333,6 @@ header {
 /* responsivedade da primeira pagina - inicio*/
 
 @media (max-width: 1065px) {
-
     .your-quizz {
         width: 92%;
     }
@@ -381,7 +372,6 @@ header {
 /* responsivedade da primeira pagina - fim*/
 
 @media (max-width: 700px) {
-
     .selected-quiz {
         height: 140px;
     }

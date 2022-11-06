@@ -6,6 +6,11 @@
     font-family: "Roboto", sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
 body {
     background: #fafafa;
     margin-top: 140px;
