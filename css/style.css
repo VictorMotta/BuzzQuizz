@@ -80,6 +80,8 @@ header {
 .your-quizzes {
     margin-top: 70px;
     width: 1051px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .all-quizzes {
@@ -342,6 +344,12 @@ header {
 
     .your-quizz {
         width: 92%;
+    }
+
+    .your-quizzes {
+        width: 92%;
+
+        align-items: center;
     }
 
     .all-quizzes {
