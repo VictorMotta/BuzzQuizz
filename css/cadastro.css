@@ -320,21 +320,28 @@ button:hover {
     border-radius: 5px;
 }
 
-.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > .acessar-quizz-criado {
-    padding: 10px 45px;
+.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > a {
     margin-top: 45px;
 }
 
+.container-hidden-sucesso-criacao-quizz
+    > .container-sucesso-criacao-quizz
+    > div
+    > a
+    .acessar-quizz-criado {
+    width: auto;
+    height: 45px;
+    padding: 10px 45px;
+}
+
 .container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > #voltar-home {
-    background-color: #fafafa;
     color: #818181;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 25px;
     transition: none;
     padding: 0;
     margin-top: 20px;
-}
-.container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > #voltar-home:hover {
-    background-color: #fafafa;
-    border: none;
 }
 
 /* FIM TELA SUCESSO DO QUIZZ TELA 3.4  */
@@ -358,8 +365,8 @@ button:hover {
 
     /* INICIO TELA INFO BASIC TELA 3.1  */
     button {
-        width: 95%;
-        padding: 20px;
+        width: 100%;
+        padding: 10px 45px;
     }
 
     .container-hidden-cria-info-basic > .container-cria-info-basic > .input-info-basics {

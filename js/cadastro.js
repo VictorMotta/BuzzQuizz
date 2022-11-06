@@ -5,6 +5,7 @@ let testeComparaPorcentagem = [];
 let verifica = true;
 let verificacaoAcertoMinimo = [];
 let porcentagemMinimaBuzz;
+let idEnviaIndex;
 
 // Inicio Primeira Tela 3.1
 
@@ -638,6 +639,7 @@ function enviaQuizzApi(quizz) {
 }
 
 function enviaQuizzSucesso(resposta) {
+    idEnviaIndex = resposta.data.id;
     if (localStorage.getItem(`listaUsuario`) === null) {
         let listaLocalStorage = [resposta.data.id];
 
@@ -683,4 +685,9 @@ function mostraTelaSucessoCriacaoBuzzQuizz(elemento) {
 
     containerHiddenCriaNiveis.classList.add("hidden");
     containerShowCriaSucessoBuzQuizz.classList.remove("hidden");
+}
+
+function acessaQuizzCriado() {
+    let idQuizzEnviar = JSON.stringify(idEnviaIndex);
+    localStorage.setItem(`quizzAcessar`, idQuizzEnviar);
 }

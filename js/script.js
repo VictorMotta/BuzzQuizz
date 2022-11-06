@@ -14,7 +14,6 @@ function deucerto(answer) {
     let meusquizzes = document.querySelector(".quizz-list");
 
     let objetoStorage = JSON.parse(localStorage.getItem("listaUsuario"));
-    console.log(objetoStorage);
 
     for (let i = 0; i < answer.data.length; i++) {
         quizz = answer.data[i];
@@ -200,3 +199,23 @@ function returnHome() {
     home.scrollIntoView({ block: "start" });
 }
 //Funções para reiniciar Quiz e voltar para HomePage - Fim
+
+// Função para iniciar o quizz assim que acabar o cadastro.
+function acessarQuizzCadastro() {
+    console.log(localStorage.getItem(`quizzAcessar`));
+    localStorage.getItem(`quizzAcessar`);
+    if (
+        localStorage.getItem(`quizzAcessar`) === null ||
+        localStorage.getItem(`quizzAcessar`) === "undefined"
+    ) {
+        console.log("entrou!");
+        localStorage.removeItem("quizzAcessar");
+        return;
+    } else {
+        let idAcessarQuizz = JSON.parse(localStorage.getItem(`quizzAcessar`));
+        callQuiz(idAcessarQuizz);
+        localStorage.removeItem("quizzAcessar");
+    }
+}
+
+acessarQuizzCadastro();
