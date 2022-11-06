@@ -11,30 +11,40 @@ DisplayQuizzes();
 function deucerto(answer) {
     let listaquizzes = document.querySelector(".quizz-list-api");
     let quizz = "";
-
-    for (let i = 0; i < answer.data.length; i++) {
-        quizz = answer.data[i];
-
-        listaquizzes.innerHTML += `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
-                url(${quizz.image});
-                background-size: 100%;">
-                 <h2 class="title-quizz">${quizz.title}</h2>
-            </li>`;
-    }
+    let meusquizzes = document.querySelector(".quizz-list");
 
     let objetoStorage = JSON.parse(localStorage.getItem("listaUsuario"));
 
     for (let i = 0; i < objetoStorage.length; i++) {
-        console.log(objetoStorage[i]);
     }
+
+    for (let i = 0; i < answer.data.length; i++) {
+        quizz = answer.data[i];
+
+        listaquizzes.innerHTML +=
+            `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
+                url(${quizz.image});
+                background-size: 100%;">
+                <h2 class="title-quizz">${quizz.title}</h2>
+            </li>`;
+
+        for (let j = 0; j < objetoStorage.length; j++) {
+            if (quizz.id === objetoStorage[j]) {
+                meusquizzes.innerHTML +=
+                    `<li id="${quizz.id}" class="img-quizz" onclick="callQuiz(this.id); getQuizId(this.id)" style="background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 65.1%, #000000 100%),
+                        url(${quizz.image});
+                        background-size: 100%;">
+                        <h2 class="title-quizz">${quizz.title}</h2>
+                    </li>`;
+            }
+        }
+    }
+
 }
 
 function getQuizId(e) {
-    console.log(e);
     endID = e;
 }
-
-//Quizzes no localStorage
 
 // Global Variables
 let contadorScroll = 1;
