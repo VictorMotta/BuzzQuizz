@@ -638,16 +638,25 @@ function enviaQuizzApi(quizz) {
 }
 
 function enviaQuizzSucesso(resposta) {
-    let listaString = localStorage.getItem(`listaUsuario`);
-    let listaConverter = JSON.parse(listaString);
+    if (localStorage.getItem(`listaUsuario`) === null) {
+        let listaLocalStorage = [resposta.data.id];
 
-    let listaLocalStorage = listaConverter;
+        let lista = JSON.stringify(listaLocalStorage);
 
-    listaLocalStorage.push(resposta.data.id);
+        localStorage.setItem(`listaUsuario`, lista);
 
-    let lista = JSON.stringify(listaLocalStorage);
+        mostraTelaSucessoCriacaoBuzzQuizz(resposta.data);
+    } else {
+        let listaString = localStorage.getItem(`listaUsuario`);
+        let listaConverter = JSON.parse(listaString);
 
-    localStorage.setItem(`listaUsuario`, lista);
+        let listaLocalStorage = listaConverter;
+
+        listaLocalStorage.push(resposta.data.id);
+        let lista = JSON.stringify(listaLocalStorage);
+
+        localStorage.setItem(`listaUsuario`, lista);
+    }
 
     mostraTelaSucessoCriacaoBuzzQuizz(resposta.data);
 }
