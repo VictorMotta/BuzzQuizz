@@ -4,7 +4,9 @@
 body {
     font-family: "Roboto", sans-serif;
 }
-
+p {
+    word-wrap: break-word;
+}
 header {
     position: fixed;
     top: 0;
