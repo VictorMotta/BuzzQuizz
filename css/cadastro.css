@@ -353,11 +353,15 @@ button:hover {
         margin-top: 106px;
     }
     /* INICIO RESPONSIVIDADE ALL 100% */
-    .container-hidden-escolhe-nivel-quizz > .container-escolhe-nivel-quizz > .container-cria-nivel,
+    .container-hidden-escolhe-nivel-quizz
+        > .container-escolhe-nivel-quizz
+        > .qtd-niveis-criar
+        > .container-cria-nivel,
     .container-hidden-sucesso-criacao-quizz > .container-sucesso-criacao-quizz > .img-quizz-criado,
     .container-hidden-cria-info-basic > .container-cria-info-basic > .input-info-basics,
     .container-hidden-cria-perguntas-resposta
         > .container-cria-perguntas-resposta
+        > .qtd-perguntas-criar
         > .container-cria-pergunta {
         width: 100%;
     }
